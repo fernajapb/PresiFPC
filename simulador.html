@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="manifest" href="manifest.json">
+    <title>Simulador Presi-FPC</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Barra de navegación */
+    .navbar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-content: space-around;
+      background: #222;
+      padding: 10px;
+    }
+    .navbar button {
+      background: #444;
+      color: white;
+      border: none;
+      font-size: 30px;
+      margin: 4px;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .navbar button:hover {
+      background: #666;
+    }
+
+    /* Vistas */
+    .vista { display: none; }
+    .vista.activa { display: block; }
+     
+   
+  </style>
+</head>
+<body>
+
+   <header>
+    <h1 id="Presupuesto">Presupuesto: 0</h1>
+  
+
+  <!-- Icono del buzón -->
+  <div id="buzonNotificaciones" title="Tienes nuevos mensajes">
+    📩
+    <span id="contadorBuzon">0</span>
+  </div>
+
+  <!-- Modal -->
+  <div id="buzonModal" class="buzon-modal">
+    <div class="buzon-contenido">
+      <h2>📩 Nuevo Mensaje</h2>
+      <p id="notificacionTexto"></p>
+      <button id="cerrarModal">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Modal para preguntas -->
+<div id="buzonPregunta" class="buzon-modal">
+  <div class="buzon-contenido">
+    <h2>❓ Nueva Pregunta</h2>
+    <p id="textoPregunta"></p>
+    <div style="margin-top:15px;">
+      <button id="btnAceptar">Aceptar</button>
+      <button id="btnCancelar">Cancelar</button>
+    </div>
+  </div>
+</div>
+</header>
+ 
+  <!-- 🔹 Barra de navegación -->
+  <nav class="navbar">
+    <button onclick="mostrarVista('inicio')">🏠</button>
+    <button onclick="mostrarVista('gestion')">📝</button>
+    <button onclick="mostrarVista('simulacion')">⚽</button>
+    <button onclick="mostrarVista('fichajes')">🔁</button>
+    <button onclick="mostrarVista('historial')">📜</button>
+    <button onclick="mostrarVista('palmares')">🏆</button>
+  </nav>
+
+  <!-- 🔹 VISTA INICIO -->
+  <div id="vista-inicio" class="vista activa">
+
+    <div class="card">
+      <h3 class="text-h3">PresiFPC</h3>
+      <h3 class="text-h3" id="nombrePresidenteMostrar"></h3>
+      <h3 class="text-h3">Versión: 4.7</h3>
+      
+     
+      <div class="botones-extra">
+        <button class="btn_ext" onclick="location.href='https://youtu.be/Wlo1mFBxTIU?si=0gmH_lOt2TYr7wo4'">Tutorial</button>
+        <button class="btn_ext" onclick="location.href='https://blogdelfpc.blogspot.com/'">Blog</button>
+        <button class="btn_ext" onclick="window.location.href='Mejoras.html'">Nuevo</button>
+        <button class="btn_ext" onclick="window.location.href='Ascenso.html'">Ascenso</button>
+        
+      </div>
+<hr>
+<p class="text-h3">*Antes de jugar mira el tutorial.</p>
+<hr>
+      <button id="botonPalanca" onclick="activarPalanca()" disabled>🔁Palanca</button>
+      <p id="titulos">Titulos Liga ganados: 0</p>
+
+    </div>
+    
+  </div>
+
+  <!-- 🔹 VISTA GESTIÓN -->
+  <div id="vista-gestion" class="vista">
+        <h2>📝 Gestión</h2>
+    <div id="selectorContenedor">
+       
+      <select id="selectorEquipo"   
+        onchange="mostrarPlantilla()">
+       <option>--Plantillas--</option>
+       <option value="Nacional">Nacional</option>
+       <option value="Millonarios">Millonarios</option>
+       <option value="América">América</option>
+       <option value="Junior">Junior</option>
+       <option value="Santa Fe">Santa Fe</option>
+       <option value="Cali">Cali</option>
+       <option value="Tolima">Tolima</option>
+       <option value="Medellín">Medellín</option>
+       <option value="Once Caldas">Once Caldas</option>
+       <option value="Pereira">Pereira</option>
+       <option value="Pasto">Pasto</option>
+       <option value="Bucaramanga">Bucaramanga</option>
+       <option value="Alianza">Alianza</option>
+       <option value="La Equidad">La Equidad</option>
+       <option value="Águilas">Águilas</option>
+       <option value="Fortaleza">Fortaleza</option>
+       <option value="Llaneros">Llaneros</option>
+       <option value="Union M.">Union</option>
+       <option value="Chico">Chico</option>
+       <option value="Envigado">Envigado</option>
+       <option value="Jaguares">Jaguares</option>
+       <option value="Real Cartagena">Cartagena</option>
+       <option value="Cucuta">Cucuta</option>
+       <option value="Huila">Huila</option>
+       <option value="Patriotas">Patriotas</option>
+       <option value="Real Cundi">R.Cundi</option>
+       <option value="Inter Palmira">I.Palmira</option>
+       <option value="Leones">Leones</option>
+       <option value="Tigres">Tigres</option>
+       <option value="Quindio">Quindio</option>
+       <option value="Bogotá">Bogotá</option>
+       <option value="Boca Jrs. Cali">Boca Jrs</option>
+       <option value="Orsomarso">Orsomarso</option>
+       <option value="Barranquilla">B/quilla</option>
+       <option value="Atlético FC">Atlético</option>
+       <option value="Real Santander">R.Santander</option>
+   </select>
+
+
+   <select id="equipoUsuario">
+        <option value="">--equipos--</option>
+    </select>
+
+
+    <select id="entrenador"  
+      onchange="seleccionarDT(this.value)">
+      <option value="">--Elige un DT--</option>
+      <option value="gamero">Alberto Gamero</option>
+      <option value="gonzalez">David González</option>
+      <option value="hernan">Hernan Torres</option>
+      <option value="bava">Jorge Bava</option>
+      <option value="herrera">Hernan Herrera</option>
+      <option value="leonel">Leonel Alvarez</option>
+      <option value="restrepo">Alejandro Restrepo</option>
+      <option value="arias">Alfredo Arias</option>
+      <option value="duda">Rafael Dudamel</option>
+      <option value="bodhert">Hubert Bodhert</option>
+      <option value="lucas">Lucas González</option>
+      <option value="flabio">Flabio Torres</option>
+      <option value="ayala">Camilo Ayala</option>
+      <option value="orozco">Andrés Orozco</option>
+      <option value="oliveros">Sebastian Oliveros</option>
+      <option value="merino">Diego Merino</option>
+      <option value="silva">Carlos Silva</option>
+      <option value="alvaro">Alvaro Hernández</option>
+      <option value="rolo">Nelson Florez</option>
+      <option value="niño">Juan David Niño</option>
+      <option value="rivera">Harold Rivera</option>
+      <option value="garcia">Alexis Garcia</option>
+      <option value="cardenas">Hector Cardenas</option>
+      <option value="corredor">Diego Corredor</option>
+      <option value="craviotto">Néstor Craviotto</option>
+      <option value="viera">Sebastian Viera</option>
+      <option value="osorio">Juan Carlos Osorio</option>
+      <option value="gandolfi">Javier Gandolfi</option>
+      <option value="cruzreal">Juan Cruz Real</option>
+      <option value="pusineri">Lucas Pusineri</option>
+     <!-- ... el resto de tus DTs ... -->
+    </select>
+
+    </div>
+
+    <div id="dtCard" class="dt-card">
+  <div class="dt-main">
+    <img id="fotoDT" src="" alt="Foto del DT" class="dt-foto">
+    <div class="dt-lines">
+       <p id="dtNombre" class="dt-nombre"></p>
+       <p id="dtEstilo" class="dt-estilo"></p>
+       <p id="fuerzaEquipo" class="dt-estilo">Fuerza: -</p>
+     <p id="mediaEquipo" class="dt-estilo">Media Promedio: -</p>
+       <div id="moralHinchadaContainer">
+         <div id="moralHinchada">Moral Hinchada: 🟡 50</div>
+         <div class="barra-moral">
+           <div class="relleno-moral" id="barraMoral"></div>
+         </div>
+       </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal de contrataciones -->
+<div id="modalContrataciones" class="modal-contrataciones">
+  <div class="modal-contrataciones-content">
+    <span class="modal-contrataciones-cerrar">&times;</span>
+    <h2>Elige tu nuevo DT</h2>
+    <div id="listaCandidatos" class="candidatos-grid">
+      <!-- Aquí se insertan los 3 candidatos -->
+    </div>
+  </div>
+</div>
+
+<div id="modalPatrocinadores" class="modal-patr" style="display:none;">
+  <div class="modal-content-patr">
+    <h2>📢 Elige tu patrocinador</h2>
+    <div id="listaPatrocinadores"></div>
+    <button onclick="cerrarModalPatrocinadores()">❌ Cerrar</button>
+  </div>
+</div>
+
+<div id="patrocinadorActivo" style="margin-top:10px;"></div>
+
+    <section class="controle">
+        <!-- Botón para abrir el modal -->
+      <button id="abrirChatDT">💬 Hablar con el DT</button>
+      <button onclick="location.reload()">Reiniciar</button>
+      <button onclick="venderCamisetas()">Vender</button>
+      <button id="botonPatrocinador" onclick="mostrarPatrocinadores()">Sponsors</button>
+     
+    </section>
+
+
+    <div id="alineacion"></div>
+
+  </div>
+
+<!--
+   onclick="location.reload()"
+  <button onclick="simularCuadrangulares()">➡️Cuadrang.</button>
+  <button onclick="simularFinal()">🥇Final</button>
+-->
+
+  <!-- 🔹 VISTA SIMULACIÓN -->
+  <div id="vista-simulacion" class="vista">
+    <section class="controles">
+    <h2 class="h2">⚽ Simulación</h2>
+    <button onclick="simularTCT()">📅Simular</button>
+    <button onclick="iniciarFaseFinal()">🏆 Fase Final</button>
+    <button onclick="descenso()">📉📈Finalizar</button>
+    <button onclick="simularTorneoB(semestreActual)">📅Torneo B</button>
+    <button onclick="mostrarPalmares()">📜Palmarés</button>
+    <button onclick="simularSuperliga()">🏆Superliga</button>
+    <label style=
+           "display:flex;
+            
+            gap:8px;
+            margin:8px;">
+    <input type="checkbox" id="modoPlayoffs">
+      Usar formato Playoffs 
+    </label>
+
+    </section>
+    
+    <div id="superliga" style="margin-top:20px;"></div>
+    <div id="tc"></div>
+    <div class="tablas-container">
+      <div id="tct"></div>
+      <div id="segunda"></div>
+    </div>
+    <div id="playoffs"></div>
+    <div id="cuadrangulares"></div>
+    <div id="final"></div>
+
+    <div id="tablaB"></div>
+<div id="cuadrangularesB_A"></div>
+<div id="cuadrangularesB_B"></div>
+<div id="finalB"></div>
+  </div>
+
+  <!-- 🔹 VISTA FICHAJES -->
+<div id="vista-fichajes" class="vista">
+   <div id="mercadoFichajes" style="margin-top:20px;"></div>
+</div>
+
+  <!-- 🔹 VISTA HISTORIAL -->
+<div id="vista-historial" class="vista">
+   <section id="historial">
+  <h2>📜 Historial Liga</h2>
+  <ul id="listaHistorial"></ul>
+  </section>
+
+  <section id="historial">
+  <h2>📜 Historial Copa</h2>
+  <ul id="listaHistorialcopa"></ul>
+  </section>
+
+  <section id="historial">
+  <h2>📜 Historial Superliga</h2>
+  <ul id="listaHistorialsuper"></ul>
+  </section>
+
+  <section id="historial">
+  <h2>📜 Historial Primera B</h2>
+  <ul id="listaHistorialB"></ul>
+</section>
+</div>
+
+ <!-- 🔹 VISTA PALMARES -->
+<div id="vista-palmares" class="vista">
+   <div id="palmares" style="margin-top:20px;"></div>
+</div>
+
+  <!-- 🔹 Modales -->
+  <div id="modalJugador" class="modal" onclick="cerrarModal()">
+    <div class="modal-contenido" id="modalContenidoJugador" onclick="event.stopPropagation()">
+      <span class="cerrar" onclick="cerrarModal()">❌</span>
+    </div>
+  </div>
+
+  <div id="modalCopa" class="modal">
+    <div class="modal-content">
+      <h2 class="modal-title">Copa Colombia</h2>
+      <pre id="modalTexto" class="modal-text"></pre>
+      <button id="modalBtn" class="modal-btn">Continuar</button>
+    </div>
+  </div>
+
+  <div id="modalSimulacion">
+  <div id="modalContenedor">
+    <h2 id="modalTitulo">📅 Fecha</h2>
+    <pre id="modalContenido"></pre>
+    <div>
+      <button id="btnCerrar">Cerrar</button>
+      <button id="btnSiguiente">Siguiente</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="dtModal" class="dt-modal">
+  <div class="dt-modal-content">
+    <span class="dt-modal-cerrar">&times;</span>
+    <div class="dt-header">
+      <img id="chatFotoDT" src="" alt="Foto del DT">
+      <h2 id="chatNombreDT"></h2>
+    </div>
+    <div id="chatMensajes" class="chat-mensajes"></div>
+    <div class="chat-botones">
+     <button onclick="cambiarEstiloDT()">Cambiar Estilo</button>
+     <button onclick="despedirDT()">Despedir</button>
+     <button onclick="objetivosSemestre()">Objetivos</button>
+     <button onclick="felicitarDT()">Felicitar</button>
+     <button onclick="noCumplimosDT()">No cumplimos</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <!-- 🔹 Scripts -->
+  <script src="script.js"></script>
+
+  <script>
+    function mostrarVista(vista) {
+      document.querySelectorAll('.vista').forEach(v => v.classList.remove('activa'));
+      document.getElementById('vista-' + vista).classList.add('activa');
+    }
+  </script>
+</body>
+</html>

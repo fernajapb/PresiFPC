@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explicación - Ascenso</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f8;
+      margin: 0;
+      padding: 40px;
+      text-align: center;
+    }
+
+    button {
+      padding: 12px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #4a90e2;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #357ABD;
+    }
+
+    .card {
+      display: none;
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+
+    .card-gold { background-color: gold; }
+    .card-green { background-color: lightgreen; }
+    .card-blugren { background: linear-gradient(lightblue, lightgreen); }
+    .card-purple { background-color: #C8A2C8; }
+    .card-blue { background-color: lightblue; }
+
+     .table-conteiner{
+       display:flex;
+       gap:40px;
+     }
+
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      background: lightblue;
+      margin: 10px 0;
+      padding: 15px;
+      border-left: 5px solid purple;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    li::before {
+      content: "✔️";
+      margin-right: 10px;
+      color: #4a90e2;
+    }
+    .asc-directo{
+      background: lightblue;
+     }
+     .asc-dir-rep{
+      background: lightyellow;
+     }
+     .repechaje{
+      background: lightgreen;
+     }
+  </style>
+</head>
+<body>
+  <h1>Casos de Ascenso</h1>
+  
+  <!-- Botones -->
+  <div>
+    <button onclick="mostrarCaso('caso1')">Caso 1</button>
+    <button onclick="mostrarCaso('caso2')">Caso 2</button>
+    <button onclick="mostrarCaso('caso3')">Caso 3</button>
+    <button onclick="mostrarCaso('caso4')">Caso 4</button>
+    <button onclick="mostrarCaso('caso5')">Caso 5</button>
+  </div>
+
+  <!-- Casos -->
+  <div id="caso1" class="card card-gold">
+    <h2>Caso 1: Ascenso automático</h2>
+    <p>Un equipo gana ambos Semestres. Esto lo asciende inmediatamente.</p>
+ 
+    <p>Equipo A(🏆2)</p>
+    <div class="table-conteiner"> 
+    <table border="1" cellpadding="10" cellspacing="0">
+  <tr>
+    <th>Equipo</th>
+    <th>Pts</th>
+  </tr>
+  <tr>
+    <td>A</td>
+    <td>20</td>
+  </tr>
+  <tr class="repechaje">
+    <td>B</td>
+    <td>17</td>
+  </tr>
+  <tr class="repechaje">
+    <td>C</td>
+    <td>14</td>
+  </tr>
+</table>
+
+<table border="1" cellpadding="10" cellspacing="0">
+  <tr>
+    <th>Equipo</th>
+    <th>Pts</th>
+  </tr>
+  <tr class="repechaje">
+    <td>B</td>
+    <td>21</td>
+  </tr>
+  <tr>
+    <td>A</td>
+    <td>19</td>
+  </tr>
+  <tr class="repechaje">
+    <td>C</td>
+    <td>16</td>
+  </tr>
+</table>
+   </div>
+   <p class="repechaje">Repechaje</p>
+  </div>
+
+  <div id="caso2" class="card card-green">
+    <h2>Caso 2: Ascenso Directo</h2>
+    <p>Este caso ocurre cuando hay 2 Campeones distintos en cada semestre, habrá ascenso directo solo si estos equipos también ocupan la 1ra y 2da posición de la tabla de reclasificación (Anual).</p>
+
+   <p>Equipo A(🏆)</p>
+   <p>Equipo C(🏆)</p>
+    <table border="1" cellpadding="10" cellspacing="0">
+  <tr>
+    <th>Equipo</th>
+    <th>Pts</th>
+  </tr>
+  <tr class="asc-directo">
+    <td>A</td>
+    <td>22</td>
+  </tr>
+  <tr class="asc-directo">
+    <td>C</td>
+    <td>19</td>
+  </tr>
+  <tr>
+    <td>D</td>
+    <td>16</td>
+  </tr>
+</table>
+  </div>
+
+  <div id="caso3" class="card card-blugren">
+    <h2>Caso 3: Ascenso por posición</h2>
+    <p>Este ocurre cuando solo 1 campeón semestral se encuentra en la posición 1⁰ o 2⁰ , esto asciende a este campeón.</p>
+
+  <p>Equipo D(🏆)</p>
+  <p>Equipo B(🏆)</p>
+    <table border="1" cellpadding="10" cellspacing="0">
+  <tr>
+    <th>Equipo</th>
+    <th>Pts</th>
+  </tr>
+  <tr class="asc-dir-rep">
+    <td>C</td>
+    <td>21</td>
+  </tr>
+  <tr class="asc-dir-rep">
+    <td>D</td>
+    <td>15</td>
+  </tr>
+  <tr>
+    <td>A</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>B</td>
+    <td>12</td>
+  </tr>
+</table>
+    <p class="asc-dir-rep">Ascenso Como Campeón O Repechaje</p>
+  </div>
+
+  <div id="caso4" class="card card-purple">
+    <h2>Caso 4: Gran Final</h2>
+    <p>Para que este caso ocurra se deben de dar ciertas cosas:</p>
+    <ul>
+      <li>Campeones Semestrales Distintos</li>
+      <li>Ninguno de los Campeones en la posición 1⁰ y 2⁰</li>
+    </ul>
+    <p>Si se cumplen esas 2 condiciones entonces se jugará gran final entre ambos Campeones Semestrales. El ganador ascenderá.</p>
+
+   <p>Equipo D(🏆)</p>
+  <p>Equipo A(🏆)</p>
+    <table border="1" cellpadding="10" cellspacing="0">
+  <tr>
+    <th>Equipo</th>
+    <th>Pts</th>
+  </tr>
+  <tr class="repechaje">
+    <td>B</td>
+    <td>25</td>
+  </tr>
+  <tr>
+    <td>E</td>
+    <td>23</td>
+  </tr>
+  <tr>
+    <td>A</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>D</td>
+    <td>19</td>
+  </tr>
+</table>
+ <p><b>Gran Final: A vs D</b></p>
+ <p class="repechaje">Repechaje</p>
+  </div>
+
+  <div id="caso5" class="card card-blue">
+    <h2>Caso 5: Repechaje</h2>
+    <p>El Repechaje es el método usado para conocer el segundo equipo que ascenderá. Siempre habrá un repechaje, solo en caso 2 no habrá.</p>
+    <p><b>Repechaje Caso 1:</b> Se jugará entre los 2 mejores equipos de la tabla de reclasificación excluyendo al equipo que ya ascendió.</p>
+    <p><b>Repechaje Caso 3:</b> Se jugará entre el otro campeón semestral y el mejor ubicado no campeón en la tabla de reclasificación.</p>
+    <p><b>Repechaje Caso 4:</b> Se jugará entre el que pierda la gran final y el equipo que se encuentre en el 1er lugar de la tabla de reclasificación.</p>
+  </div>
+
+  <script>
+    function mostrarCaso(id) {
+      // Oculta todos los casos
+      document.querySelectorAll('.card').forEach(card => card.style.display = 'none');
+      // Muestra el caso seleccionado
+      document.getElementById(id).style.display = 'block';
+    }
+  </script>
+</body>
+</html>
