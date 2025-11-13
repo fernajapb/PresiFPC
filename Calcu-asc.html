@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora Ascenso FPC</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    section {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .select-group {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+    select {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      width: 100%;
+    }
+    .equipo-display {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .equipo-display img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+    .equipo-display span {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    #resultado {
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid #ccc;
+      margin-top: 30px;
+    }
+    .resultado-equipo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .resultado-equipo img {
+      width: 70px;
+      height: 70px;
+    }
+    .mensaje {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Calculadora Ascenso - Torneo BetPlay 2da División</h1>
+
+  <section>
+    <h2>🏆 Campeones por Semestre</h2>
+    <div class="select-group">
+      <div>
+        <label for="campeon1">Campeón 1S:</label>
+        <select id="campeon1" onchange="mostrarEquipo(this, 'display1')"></select>
+        <div id="display1" class="equipo-display"></div>
+      </div>
+
+      <div>
+        <label for="campeon2">Campeón 2S:</label>
+        <select id="campeon2" onchange="mostrarEquipo(this, 'display2')"></select>
+        <div id="display2" class="equipo-display"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>📈 Top 3 Reclasificación</h2>
+    <div class="select-group">
+      <div>
+        <label for="top1">1° Lugar:</label>
+        <select id="top1" onchange="mostrarEquipo(this, 'topDisplay1')"></select>
+        <div id="topDisplay1" class="equipo-display"></div>
+      </div>
+
+      <div>
+        <label for="top2">2° Lugar:</label>
+        <select id="top2" onchange="mostrarEquipo(this, 'topDisplay2')"></select>
+        <div id="topDisplay2" class="equipo-display"></div>
+      </div>
+
+      <div>
+        <label for="top3">3° Lugar:</label>
+        <select id="top3" onchange="mostrarEquipo(this, 'topDisplay3')"></select>
+        <div id="topDisplay3" class="equipo-display"></div>
+      </div>
+    </div>
+
+    <button onclick="calcularAscenso()">Calcular Ascenso</button>
+  </section>
+
+  <section id="resultado"></section>
+
+  <script>
+  const equipos = [
+    "cucuta",
+    "real cartagena",
+    "jaguares",
+    "leones",
+    "bogota",
+    "atletico fc",
+    "inter palmira",
+    "tigres",
+    "real cundi",
+    "huila",
+    "orsomarso",
+    "real santander",
+    "quindio",
+    "boca jrs. cali",
+    "patriotas"
+  ];
+
+  window.onload = function() {
+    const selects = ["campeon1", "campeon2", "top1", "top2", "top3"];
+    selects.forEach(id => {
+      const select = document.getElementById(id);
+      const def = document.createElement("option");
+      def.value = "";
+      def.textContent = "Seleccionar equipo";
+      select.appendChild(def);
+      equipos.forEach(eq => {
+        const opt = document.createElement("option");
+        opt.value = eq;
+        opt.textContent = eq;
+        select.appendChild(opt);
+      });
+    });
+  };
+
+  function normalizarNombre(nombre) {
+    return nombre.replace(/ /g, "_");
+  }
+
+  function mostrarEquipo(select, displayId) {
+    const nombre = select.value;
+    const display = document.getElementById(displayId);
+    display.innerHTML = "";
+    if (nombre) {
+      const img = document.createElement("img");
+      img.src = `escudos/${normalizarNombre(nombre)}.png`;
+      img.alt = nombre;
+      const span = document.createElement("span");
+      span.textContent = nombre;
+      display.appendChild(img);
+      display.appendChild(span);
+    }
+  }
+
+  function crearEquipoDisplay(nombre) {
+    const div = document.createElement("div");
+    div.className = "resultado-equipo";
+    const img = document.createElement("img");
+    img.src = `escudos/${normalizarNombre(nombre)}.png`;
+    img.alt = nombre;
+    const span = document.createElement("span");
+    span.textContent = nombre;
+    div.appendChild(img);
+    div.appendChild(span);
+    return div;
+  }
+
+  function calcularAscenso() {
+    const c1 = document.getElementById("campeon1").value;
+    const c2 = document.getElementById("campeon2").value;
+    const top1 = document.getElementById("top1").value;
+    const top2 = document.getElementById("top2").value;
+    const top3 = document.getElementById("top3").value;
+
+    const resultado = document.getElementById("resultado");
+    resultado.innerHTML = "";
+
+    if (!c1 || !c2 || !top1 || !top2 || !top3) {
+      resultado.innerHTML = "<p class='mensaje'>⚠️ Selecciona todos los equipos antes de calcular.</p>";
+      return;
+    }
+
+    const topReclas = [top1, top2];
+    const top3List = [top1, top2, top3];
+
+    // 🟢 CASO 1 — Doble campeón
+    if (c1 === c2) {
+      resultado.innerHTML = "<h2>🏆 Caso 1 – Campeón doble</h2>";
+      resultado.appendChild(crearEquipoDisplay(c1));
+      const m = document.createElement("p");
+      m.className = "mensaje";
+      m.textContent = `${c1} asciende directamente a la Primera División.`;
+      resultado.appendChild(m);
+
+      const reclas = top3List.filter(eq => eq !== c1);
+      if (reclas.length >= 2) {
+        const msg2 = document.createElement("p");
+        msg2.className = "mensaje";
+        msg2.textContent = "Repechaje por el segundo ascenso:";
+        resultado.appendChild(msg2);
+        resultado.appendChild(crearEquipoDisplay(reclas[0]));
+        const vs = document.createElement("p");
+        vs.textContent = "🆚";
+        resultado.appendChild(vs);
+        resultado.appendChild(crearEquipoDisplay(reclas[1]));
+      } else {
+        resultado.appendChild(document.createTextNode("No hay suficientes equipos para el repechaje."));
+      }
+      return;
+    }
+
+    // 🟢 CASO 2 — Campeones distintos y ambos top 2
+    if (topReclas.includes(c1) && topReclas.includes(c2)) {
+      resultado.innerHTML = "<h2>🏆 Caso 2 – Ascenso directo por reclasificación</h2>";
+      resultado.appendChild(crearEquipoDisplay(c1));
+      resultado.appendChild(crearEquipoDisplay(c2));
+      const m = document.createElement("p");
+      m.className = "mensaje";
+      m.textContent = `${c1} y ${c2} ascienden directamente por ocupar las primeras posiciones de la reclasificación.`;
+      resultado.appendChild(m);
+      return;
+    }
+
+    // 🟢 CASO 3 — Solo uno de los campeones está top 2
+    const c1Top2 = topReclas.includes(c1);
+    const c2Top2 = topReclas.includes(c2);
+
+    if ((c1Top2 && !c2Top2) || (c2Top2 && !c1Top2)) {
+      resultado.innerHTML = "<h2>🏆 Caso 3 – Ascenso por posición</h2>";
+
+      const ascendido = c1Top2 ? c1 : c2;
+      resultado.appendChild(crearEquipoDisplay(ascendido));
+      const msg1 = document.createElement("p");
+      msg1.className = "mensaje";
+      msg1.textContent = `${ascendido} asciende directamente por su posición en la reclasificación.`;
+      resultado.appendChild(msg1);
+
+      const otroCampeon = c1Top2 ? c2 : c1;
+      const mejorNoCampeon = top3List.find(eq => eq !== c1 && eq !== c2);
+
+      if (mejorNoCampeon) {
+        const msg2 = document.createElement("p");
+        msg2.className = "mensaje";
+        msg2.textContent = "Repechaje por el segundo ascenso:";
+        resultado.appendChild(msg2);
+        resultado.appendChild(crearEquipoDisplay(otroCampeon));
+        const vs = document.createElement("p");
+        vs.textContent = "🆚";
+        resultado.appendChild(vs);
+        resultado.appendChild(crearEquipoDisplay(mejorNoCampeon));
+      } else {
+        resultado.appendChild(document.createTextNode("No hay equipo disponible para el repechaje."));
+      }
+      return;
+    }
+
+    // 🟢 CASO 4 — Gran Final entre campeones
+    if (!topReclas.includes(c1) && !topReclas.includes(c2)) {
+      resultado.innerHTML = "<h2>🏆 Caso 4 – Gran Final</h2>";
+
+      const msg1 = document.createElement("p");
+      msg1.className = "mensaje";
+      msg1.textContent = "Gran Final entre los campeones:";
+      resultado.appendChild(msg1);
+
+      resultado.appendChild(crearEquipoDisplay(c1));
+      const vs = document.createElement("p");
+      vs.textContent = "🆚";
+      resultado.appendChild(vs);
+      resultado.appendChild(crearEquipoDisplay(c2));
+
+      const msg2 = document.createElement("p");
+      msg2.className = "mensaje";
+      msg2.textContent = "El perdedor de la Gran Final jugará el repechaje contra:";
+      resultado.appendChild(msg2);
+      resultado.appendChild(crearEquipoDisplay(top1));
+      return;
+    }
+
+    // Si no aplica ninguno
+    resultado.innerHTML = "<p class='mensaje'>⚙️ No aplica ningún caso con los datos actuales.</p>";
+  }
+</script>
+</body>
+</html>
