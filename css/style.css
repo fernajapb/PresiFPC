@@ -1,0 +1,509 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: black;
+  background-image: url('https://img.freepik.com/vector-premium/fondo-futbol-o-futbol-pelota-grande-colores-azules_444390-18092.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh; /* ocupa toda la pantalla como mínimo */
+}
+
+header {
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  color: white;
+  margin-bottom: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ===============================
+   MEDIA QUERIES PERSONALIZADAS
+=================================*/
+
+/* Grande (zoom, pantalla angosta) → Selects en columna */
+@media (max-width: 380px) {
+  #selectorContenedor {
+    flex-direction: column;
+    height: auto;
+  }
+  #selectorContenedor select {
+    width: 80%;
+  }
+
+  .card {
+    width: 95%;
+    padding: 12px;
+  }
+   
+}
+
+/* Predeterminado (móvil estándar) → 3 selects en fila */
+@media (min-width: 480px) and (max-width: 768px) {
+  #selectorContenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    height: 70px;
+  }
+  #selectorContenedor select {
+    width: 100%;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
+
+/* Pequeño (texto chico, más espacio en pantalla) → también 3 en fila */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #selectorContenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    height: auto;
+  }
+  #selectorContenedor select {
+    width: 100%;
+  }
+
+  .card {
+    width: 70%;
+  }
+}
+
+/* Pantallas grandes (desktop normal en adelante) */
+@media (min-width: 1025px) {
+  .card {
+    width: 400px;
+  }
+}
+
+  .text-h3{
+      color: white;
+      background: none;
+     }
+     h1{
+      color: white;
+     }
+
+
+.presupuesto-verde {
+  color: green;
+}
+.presupuesto-naranja {
+  color: orange;
+}
+.presupuesto-rojo {
+  color: red;
+}
+
+.card {
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  border: 2px solid #3b82f6;
+  border-radius: 16px;
+  padding: 20px;
+  width: 360px;
+  box-shadow: 0 0 20px rgba(59,130,246,0.6);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 18px;
+  }
+
+/*estilos de dts*/
+.dt-card {
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  border: 2px solid #3b82f6;
+  border-radius: 16px;
+  padding: 20px;
+  width: 360px;
+  box-shadow: 0 0 20px rgba(59,130,246,0.6);
+  margin: 0 auto;
+}
+
+
+.dt-main {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(25, 35, 60, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dt-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.dt-foto {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+}
+
+.dt-lines {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #f8fafc;
+  flex: 1;
+}
+
+.dt-nombre {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+
+.dt-estilo {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #d1d5db;
+}
+
+
+
+
+
+/*===Select===*/
+#equipoUsuario ,#entrenador, #selectorEquipo, #equipos{
+  width: 130px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+
+#equipoUsuario:hover {
+  border-color: #2980b9;
+}
+
+#equipoUsuario:focus {
+  border-color: #1abc9c;
+  background-color: #ffffff;
+}
+
+#selectorContenedor{
+background: linear-gradient(145deg, #1e293b, #0f172a);
+height: auto;
+padding:4px;
+border-radius: 8px;
+display:flex;
+gap:10px;
+}
+#selectorContenedor select{
+background-color: #f0f9ff;
+height:40px;
+border-radius: 8px;
+padding:4px;
+margin: 0 auto;
+}
+#h2{
+background: linear-gradient(145deg, #1e293b, #0f172a);
+color:white;
+text-align:center;
+height:40px;
+}
+
+
+
+.controles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  color:white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  justify-items: center;
+}
+
+.accion-btn {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  //grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 1rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  color:white;
+  
+}
+
+.estado {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  color:white;
+  
+}
+
+
+/* -------------------------------
+   botones
+---------------------------------*/
+.controles button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(145deg, #3b82f6, #1d4ed8);
+  //background-color: #0066cc;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Segoe UI', sans-serif;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 50%;
+  min-width: 140px;
+  max-width: 170px;
+  min-height: 44px;
+}
+
+.controles button:hover {
+  background-color: #3399ff;
+  transform: scale(1.03);
+}
+.controles h2 {
+  grid-column: 1 / -1;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.accion-btn button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(145deg, #3b82f6, #1d4ed8);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Segoe UI', sans-serif;
+  
+}
+
+.accion-btn h2 {
+  grid-column: 1 / -1;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  text-align: center;
+}
+.accion-btn button:hover {
+  background-color: lightblue;
+  color: black;
+}
+
+.btn_ext {
+  background-color: green;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+.botones-extra {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  gap: 6px; /* espacio entre botones */
+  margin-top: 20px;
+}
+
+ /*=================================
+   Barra de navegación
+ ===================================*/
+.navbar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-around;
+  background: #222;
+  padding: 10px;
+}
+.navbar button {
+  background: #444;
+  color: white;
+  border: none;
+  font-size: 24px;
+  margin: 4px;
+  padding: 12px 17px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.navbar button:hover {
+  background: #666;
+}
+
+/* Vistas */
+.vista { display: none; }
+.vista.activa { display: block; }
+
+
+/* ======= menús de configuración , 
+  créditos y objetivos ======= */
+.menu-seccion {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  border-radius: 20px;
+  background: #f8f8f8;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
+}
+
+.menu-seccion label {
+  font-weight: bold;
+  color: #333;
+}
+
+.opcion {
+  margin-bottom: 20px;
+}
+
+.creditos {
+  text-align: center;
+}
+
+.objetivo {
+  text-align: center;
+}
+
+.panel-fuerzas {
+  background: #f9fafb;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+.panel-fuerzas table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.panel-fuerzas th {
+  background: #0f62fe;
+  color: white;
+  padding: 8px;
+  border-radius: 6px 6px 0 0;
+}
+
+.panel-fuerzas td {
+  padding: 6px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.panel-fuerzas tr:hover {
+  background: #eef3ff;
+}
+
+.btn-actualizar {
+  display: inline-block;
+  background: #0f62fe;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-actualizar:hover {
+  background: #084cdf;
+}
+
+/*===Vista Ayuda===*/
+
+details {
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+  }
+
+  details[open] {
+    background: #f0f8ff;
+    transform: scale(1.01);
+  }
+
+  summary {
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    list-style: none;
+    outline: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::before {
+    content: "▶ ";
+    transition: transform 0.3s ease;
+  }
+
+  details[open] summary::before {
+    content: "▼ ";
+  }
+
+  iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    margin-top: 10px;
+    border-radius: 8px;
+  }
+
+
+
+.qr-nequi {
+  width: 150px;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+    

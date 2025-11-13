@@ -1,0 +1,205 @@
+
+/* ===== Brackets Playoffs ===== */
+.bracket {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin: 40px 40px;
+  padding: 10px;
+  font-family: sans-serif;
+}
+
+/* Cada ronda organizada en grid */
+.round {
+  display: grid;
+  gap: 20px;
+}
+
+/* Cuartos: 8 equipos -> 4 partidos */
+.round.cuartos {
+  grid-template-rows: repeat(8, 59px);
+}
+
+/* Semis: 4 equipos -> 2 partidos */
+.round.semis {
+  grid-template-rows: repeat(4, 150px);
+  margin: 28px 37px;
+}
+
+/* Final: 2 equipos -> 1 llave */
+.round.final {
+  grid-template-rows: repeat(2, 340px);
+  margin: 92px 56px;
+}
+
+.team {
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border: 2px solid #0a2f6b;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.team:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+
+.connector-h {
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  width: 40px;
+  height: 2px;
+  background: #0a2f6b;
+}
+
+.connector-v {
+  position: absolute;
+  right: -40px;
+  top: 25%;
+  width: 2px;
+  height: 50%;
+  background: #0a2f6b;
+}
+
+.round.final .team {
+  border: 2px solid #d4af37; /* dorado */
+  background: #fffbea;
+}
+
+.champion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #0a2f6b;
+}
+
+.champion img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.champion span {
+  color: #d4af37; /* dorado para el nombre */
+}
+#final img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+
+/* =======================
+   🏆 FORMATO MX (FINAL & PLAY-IN)
+   ======================= */
+
+.final-mx {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 16px auto;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 14px 16px;
+  width: 80%;
+  max-width: 630px;
+}
+
+/* Cada línea de ida o vuelta */
+.final-mx .linea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 15.5px;
+  font-weight: 600;
+  background: linear-gradient(180deg, #fafafa, #fdfdfd);
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 6px 10px;
+  width: 90%;
+}
+
+.final-mx .nombre {
+  min-width: 110px;
+  text-align: center;
+  font-weight: 600;
+  color: #222;
+}
+
+.final-mx .resultado {
+  font-weight: 700;
+  font-size: 16px;
+  color: #000;
+  letter-spacing: 1px;
+  min-width: 70px;
+  text-align: center;
+}
+
+/* Ganador */
+.final-mx .ganador {
+  margin-top: 6px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #0b6d2b;
+  background: #eaf8ed;
+  border-radius: 8px;
+  padding: 4px 8px;
+  display: inline-block;
+}
+
+/* Escudo genérico */
+.final-mx img.escudo {
+  border-radius: 50%;
+  object-fit: cover;
+  vertical-align: middle;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  transition: transform 0.15s ease;
+}
+
+.final-mx img.escudo:hover {
+  transform: scale(1.08);
+}
+
+/* Tamaño estándar (Final) */
+#final .final-mx img.escudo {
+  width: 34px;
+  height: 34px;
+}
+
+/* =======================
+   ⚽ ESCUDOS PLAY-IN
+   ======================= */
+.escudo-playin {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  vertical-align: middle;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  transition: transform 0.15s ease;
+}
+
+.escudo-playin:hover {
+  transform: scale(1.08);
+}
