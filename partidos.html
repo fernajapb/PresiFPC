@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,
+   initial-scale=1.0">
+  <title>⚽ Partido Rápido</title>
+  <link rel="stylesheet" href="css/partidos.css">
+</head>
+<body>
+
+  <div class="partido-container">
+
+  <h1>⚽ Partido Rápido</h1>
+
+  <div class="selectores">
+    <select id="equipoLocal"></select>
+    <select id="equipoVisitante"></select>
+  </div>
+
+  <div class="botones">
+    <button class="btn-jugar" onclick="jugarPartido()">▶️ Jugar</button>
+    <button class="btn-detener" onclick="detenerPartido()">⏹️ Detener</button>
+  </div>
+
+  <div class="cronometro" id="cronometro">⏱️ 0'</div>
+
+  <div class="marcador marcador-equipos">
+
+  <div class="equipo equipo-local">
+    <img id="escudoLocal" class="escudo" src="" alt="">
+    <span id="nombreLocal"></span>
+  </div>
+
+  <span id="marcador">0 - 0</span>
+
+  <div class="equipo equipo-visitante">
+    <img id="escudoVisitante" class="escudo" src="" alt="">
+    <span id="nombreVisitante"></span>
+  </div>
+
+</div>
+
+  <div class="info-partido" id="infoPartido"></div>
+
+  <div class="eventos" id="eventos"></div>
+
+</div>
+
+  <!-- ORDEN IMPORTANTE -->
+  <script src="js/global.js"></script>
+  <script src="js/equipo/plantillas.js"></script>
+  <script src="js/partidos.js"></script>
+
+</body>
+</html>

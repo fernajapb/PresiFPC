@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador Fútbol Colombiano</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/inicio.css">
+</head>
+<body>
+
+<div class="inicio-container">
+  <!-- FONDOS DINÁMICOS -->
+  <div class="fondo fondo-1"></div>
+  <div class="fondo fondo-2"></div>
+
+  <div class="overlay"></div>
+
+  <div class="contenido">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-left">
+        <img src="img/logo.png" class="logo" alt="Logo">
+        <span class="titulo">Simulador Fútbol Colombiano</span>
+      </div>
+    </header>
+
+    <!-- FRASES -->
+    <section class="frases-container">
+      <p id="frasePrincipal"></p>
+    </section>
+
+    <!-- MENÚ PRINCIPAL -->
+    <section class="menu-principal">
+
+      <div class="card card-principal" id="btnNuevaPartida">
+        <h3>Nueva Partida</h3>
+        <p>Asume la presidencia de un club colombiano</p>
+      </div>
+
+      <div class="card">
+        <img id="escudoCarrusel" src="escudos/nacional.png"
+                                 alt="Escudo">
+        <h3>Equipos</h3>
+        <p>Explora los clubes del fútbol colombiano</p>
+      </div>
+
+      <div class="card" onclick="window.open('https://youtube.com/@ebfpc-26?si=ZKNzkl65IimBSd0e','_blank')">
+        <h3>Contenido</h3>
+        <p>Videos, guías y novedades</p>
+      </div>
+
+      <div class="card" id="BtnHerramientas">
+        <h3>Herramientas</h3>
+        <p>Opciones, estadísticas y utilidades</p>
+      </div>
+
+    </section>
+
+    <!-- MODAL NUEVA PARTIDA -->
+    <div class="modal" id="modalNuevaPartida">
+      <div class="modal-contenido">
+        <h2>Iniciar Nueva Partida</h2>
+        <p>¿Cómo se llamará el presidente del club?</p>
+        <input type="text" id="nombrePresidente"
+          placeholder="Ej. Juan Pérez">
+        <div class="modal-botones">
+          <button class="btn-secundario"id="btnCancelar">
+            Cerrar
+          </button>
+          <button class="btn-principal" id="btnIniciar">
+            Iniciar Carrera
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modals" id="modalHerramientas">
+      <div class="modal-contenidoh">
+        <h2>Herramientas</h2>
+        <div class="modal-botones">
+
+         <div class="botones-extra">
+
+        <button class="btn_ext"
+     onclick="location.href='https://blogdelfpc.blogspot.com/'">
+         Blog
+        </button>
+
+        <button class="btn_ext"
+         onclick="window.location.href='Mejoras.html'">
+         Mejoras
+        </button>
+
+        <button class="btn_ext"
+         onclick="window.location.href='Ascenso.html'">
+         ¿Cómo se Asciende?
+        </button>  
+
+         <button class="btn_ext"
+         onclick="window.location.href='Calcu-asc.html'">
+         Calcu Ascenso
+        </button>  
+
+        <button class="btn_ext"
+         onclick="window.location.href='Calcu-desc.html'">
+         Calcu Descenso
+        </button>  
+
+        <button class="btn_ext"
+         onclick="window.location.href='partidos.html'">
+         Partido Rápido
+        </button>  
+
+         <button class="btn-secundario" id="btnCerrar">
+            Cerrar
+          </button>
+
+         </div>
+         
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+/* FRASES */
+let frases=[],i=0;
+const frase=document.getElementById("frasePrincipal");
+fetch("recursos/data/frases.json")
+.then(r=>r.json()).then(d=>frases=d).catch(()=>frases=["El poder del fútbol colombiano está en tus decisiones"]);
+setInterval(()=>{
+  frase.style.opacity=0;
+  setTimeout(()=>{
+    frase.textContent=frases[i];
+    frase.style.opacity=1;
+    i=(i+1)%frases.length;
+  },500);
+},5000);
+
+
+
+/* CARRUSEL */
+const escudos = [
+      "nacional", "millonarios", "america", "cali", "junior",
+      "santa_fe", "tolima","medellin", "once_caldas", "pereira", 
+      "alianza", "bucaramanga", "inter_bogota","envigado",
+      "pasto", "aguilas", "b.chico", "fortaleza", "llaneros",  
+      "u.magdalena","atletico_fc","barranquilla",
+      "boca_jrs._cali","bogota","cucuta",
+      "yumbo_del_valle","inter_palmira","jaguares",
+      "leones","orsomarso","patriotas","quindio",
+      "real_cartagena","r.cundinamarca","r.santander",
+      "tigres"
+       ];
+
+let e=0;
+setInterval(()=>{e=(e+1)%escudos.length;
+  document.getElementById("escudoCarrusel").src=`escudos/${escudos[e]}.png`;
+},1500);
+
+/* MODAL */
+const modal=document.getElementById("modalNuevaPartida");
+document.getElementById("btnNuevaPartida").onclick=()=>modal.classList.add("activo");
+
+const modals=document.getElementById("modalHerramientas");
+document.getElementById("BtnHerramientas").onclick=()=>modals.classList.add("activo");
+
+document.getElementById("btnCancelar").onclick=()=>modal.classList.remove("activo");
+
+document.getElementById("btnCerrar").onclick=()=>modals.classList.remove("activo");
+
+document.getElementById("btnIniciar").onclick=()=>{
+  const
+  n=document.getElementById("nombrePresidente").value.trim();
+  if(!n)return alert("Ingresa tu nombre");
+  localStorage.setItem("nombrePresidente",n);
+  location.href="simulador.html";
+};
+
+/* FONDO DINÁMICO ESTILO FIFA */
+const fondos = [
+  "img/fondo1.jpg",
+  "img/fondo2.jpg",
+  "img/fondo3.jpg",
+  "img/fondo4.jpg",
+  "img/fondo5.jpg",
+  "img/fondo6.jpg",
+  "img/fondo7.jpg",
+  "img/fondo8.jpg",
+  "img/fondo9.jpg",
+];
+
+let fondoActual = 0;
+const fondo1 = document.querySelector(".fondo-1");
+const fondo2 = document.querySelector(".fondo-2");
+
+fondo1.style.backgroundImage = `url(${fondos[0]})`;
+
+setInterval(() => {
+  fondoActual = (fondoActual + 1) % fondos.length;
+  fondo2.style.backgroundImage = `url(${fondos[fondoActual]})`;
+
+  fondo2.style.opacity = 1;
+  fondo1.style.opacity = 0;
+
+  setTimeout(() => {
+    fondo1.style.backgroundImage = fondo2.style.backgroundImage;
+    fondo1.style.opacity = 1;
+    fondo2.style.opacity = 0;
+  }, 1200);
+}, 30000); // cambia cada 30 segundos
+
+
+</script>
+
+</body>
+</html>

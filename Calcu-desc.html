@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Descenso</title>
+
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #111827;
+            --border: #1f2933;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --danger: #dc2626;
+            --accent: #2563eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px 10px 40px;
+            background: linear-gradient(180deg, #020617, var(--bg));
+            color: var(--text);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .table-wrapper {
+            max-width: 900px;
+            margin: auto;
+            background: var(--card);
+            border-radius: 14px;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.35);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 650px;
+        }
+
+        thead {
+            background: #020617;
+        }
+
+        th {
+            padding: 10px;
+            font-size: .8rem;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            color: var(--muted);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+            font-size: .9rem;
+        }
+
+        tbody tr:hover {
+            background: rgba(255,255,255,.03);
+        }
+
+        .team {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-align: left;
+        }
+
+        .team img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
+
+        input.editable {
+            width: 60px;
+            padding: 6px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: #020617;
+            color: var(--text);
+            text-align: center;
+        }
+
+        input.editable:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .red-row {
+            background: rgba(220,38,38,.18);
+        }
+
+        .red-row td {
+            color: #fecaca;
+            font-weight: 600;
+        }
+
+        .actions {
+            max-width: 900px;
+            margin: 15px auto 0;
+            text-align: center;
+        }
+
+        button {
+            padding: 12px 26px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(135deg, var(--danger), #b91c1c);
+            color: white;
+            font-size: .95rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(220,38,38,.4);
+        }
+
+        button:active {
+            transform: scale(.97);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.2rem;
+            }
+
+            td, th {
+                padding: 8px 6px;
+                font-size: .8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Tabla de Descenso</h1>
+
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th>Pos</th>
+                <th>Equipo</th>
+                <th>PJ</th>
+                <th>PTS</th>
+                <th>Prom</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>20</td>
+                <td class="team">
+                    <img src="http://www.dimayor.com.co/wp-content/uploads/2025/01/Llaneros-150x150.png">
+                    Llaneros
+                </td>
+                <td><input class="editable" id="Pju1" type="number" value="0"></td>
+                <td><input class="editable" id="Pob1" type="number" value="0"></td>
+                <td id="Num1"></td>
+            </tr>
+
+            <tr>
+                <td>19</td>
+                <td class="team">
+                    <img src="http://www.dimayor.com.co/wp-content/uploads/2025/03/Cucuta-Cent.png">
+                    Cúcuta
+                </td>
+                <td><input class="editable" id="Pju2" type="number" value="0"></td>
+                <td><input class="editable" id="Pob2" type="number" value="0"></td>
+                <td id="Num2"></td>
+            </tr>
+
+            <tr>
+                <td>18</td>
+                <td class="team">
+                    <img src="https://dimayor.com.co/wp-content/uploads/2024/06/Deportivo-cali.png">
+                    Deportivo Cali
+                </td>
+                <td><input class="editable" id="Pju3" type="number" value="0"></td>
+                <td><input class="editable" id="Pob3" type="number" value="0"></td>
+                <td id="Num3"></td>
+            </tr>
+
+            <tr>
+                <td>17</td>
+                <td class="team">
+                    <img src="http://www.dimayor.com.co/wp-content/uploads/2024/06/JAGUARES-F.C-300x300.png">
+                    Jaguares
+                </td>
+                <td><input class="editable" id="Pju4" type="number" value="0"></td>
+                <td><input class="editable" id="Pob4" type="number" value="0"></td>
+                <td id="Num4"></td>
+            </tr>
+
+            <tr>
+                <td>16</td>
+                <td class="team">
+                    <img src="https://dimayor.com.co/wp-content/uploads/2024/06/Boyaca-chico.png">
+                    Boyacá Chicó
+                </td>
+                <td><input class="editable" id="Pju5" type="number" value="0"></td>
+                <td><input class="editable" id="Pob5" type="number" value="0"></td>
+                <td id="Num5"></td>
+            </tr>
+
+            <tr>
+                <td>15</td>
+                <td class="team">
+                    <img src="https://dimayor.com.co/wp-content/uploads/2024/06/FORTALEZA-C.E.I.F.png">
+                    Fortaleza
+                </td>
+                <td><input class="editable" id="Pju6" type="number" value="0"></td>
+                <td><input class="editable" id="Pob6" type="number" value="0"></td>
+                <td id="Num6"></td>
+            </tr>
+
+            <tr>
+                <td>14</td>
+                <td class="team">
+                    <img src="http://www.dimayor.com.co/wp-content/uploads/2025/12/OFICIAL-IDB-300x300.png">
+                    Inter Bogotá
+                </td>
+                <td><input class="editable" id="Pju7" type="number" value="0"></td>
+                <td><input class="editable" id="Pob7" type="number" value="0"></td>
+                <td id="Num7"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="actions">
+    <button onclick="actualizarTabla()">Actualizar Tabla</button>
+</div>
+
+<!-- JS ORIGINAL (SIN TOCAR) -->
+<script>
+    function actualizarTabla() {
+        var table = document.querySelector("table");
+        var tbody = table.querySelector("tbody");
+        var rows = Array.from(tbody.querySelectorAll("tr"));
+
+        rows.forEach(row => {
+            var partidosJugados = parseFloat(row.querySelector(".editable").value) || 0;
+            var puntosObtenidos = parseFloat(row.querySelectorAll(".editable")[1].value) || 0;
+            var puntaje = partidosJugados !== 0 ? (puntosObtenidos / partidosJugados).toFixed(2) : 0;
+            row.querySelector("[id^='Num']").textContent = puntaje;
+        });
+
+        rows.sort((a, b) => {
+            var numA = parseFloat(a.querySelector("[id^='Num']").textContent) || 0;
+            var numB = parseFloat(b.querySelector("[id^='Num']").textContent) || 0;
+            return numA - numB;
+        });
+
+        rows.forEach((row, index) => {
+            row.cells[0].textContent = 20 - index;
+
+            if (20 - index === 20 || 20 - index === 19) {
+                row.classList.add("red-row");
+            } else {
+                row.classList.remove("red-row");
+            }
+
+            tbody.appendChild(row);
+        });
+    }
+</script>
+
+</body>
+</html>
