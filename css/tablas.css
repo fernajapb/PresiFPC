@@ -1,0 +1,319 @@
+
+/* Tablas de posiciones*/
+.tablas-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; 
+}
+
+.tablas-container > div {
+  width: 350px; /* o 300px si querés más chicas */
+}
+
+.tablas-container table {
+  font-size: 15px; /* Más compacto */
+  margin-bottom: 20px;
+}
+
+.tablas-containerB, 
+.tablas-containerA{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .tablas-containerB,
+  .tablas-containerA{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.tablas-containerA > div {
+  width: 350px; /* o 300px si querés más chicas */
+}
+
+.tablas-containerA table {
+  font-size: 15px; /* Más compacto */
+  margin-bottom: 20px;
+}
+
+.tablas-containerB > div {
+  width: 350px;
+}
+
+.tablas-containerB table {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+
+
+table {
+  width: 90%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+table th, table td {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+table th {
+  background-color: #f9fafb;
+  font-weight: bold;
+}
+
+/* Historial */
+#historial {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+#listaHistorial {
+  list-style: none;
+  padding-left: 0;
+}
+
+#listaHistorial li {
+  padding: 5px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+#listaHistorialcopa{
+  list-style: none;
+  padding-left: 0;
+}
+
+#listaHistorialcopa li {
+  padding: 5px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+#listaHistorialsuper {
+  list-style: none;
+  padding-left: 0;
+}
+
+#listaHistorialsuper li {
+  padding: 5px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+
+#listaHistorialB {
+  list-style: none;
+  padding-left: 0;
+  
+}
+
+#listaHistorialB li {
+  padding: 5px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+
+/*Detalles Tablas*/
+.mi-equipo {
+  background-color: #d0e4ff !important; /* azul claro */
+  font-weight: bold;
+}
+
+.mi-equipo td:nth-child(2)::before {
+  content: "*";
+  color: black;
+}
+.escudo {
+  width: 30px;
+  height: 30px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+tr.clasificado {
+  background-color: #d1fae5; /* verde claro */
+  font-weight: bold;
+}
+
+tr.lider-grupo {
+  background-color: #fde68a; /* dorado claro */
+  font-weight: bold;
+}
+
+.descenso {
+  background-color: #ffe5e5;
+  color: #b30000;
+  font-weight: bold;
+  }
+
+/*
+colores para anual
+.ascendido {
+  background-color: #29E343;
+  font-weight: bold;
+}
+.repechaje {
+  background-color: blue;
+  font-weight: bold;
+  color: white;
+}
+.posrepe{
+  background-color: yellow;
+  font-weight: bold;
+}
+*/
+
+
+/*Secciones y partidos*/
+#final {
+  background: #f8f9fa; /* fondo claro */
+  border: 2px solid #dee2e6;
+  border-radius: 20px;
+  padding: 20px 30px;
+  margin-top: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#finalB {
+  background: #f8f9fa; /* fondo claro */
+  border: 2px solid #dee2e6;
+  border-radius: 20px;
+  padding: 20px 30px;
+  margin-top: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Contenedor general */
+#resultados {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+#resultados{
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: white;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+h4{
+color: red;
+}
+
+/* Cada bloque de fecha */
+.fecha {
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background-color: #f7f9fc;
+  border-left: 4px solid #007BFF;
+  border-radius: 6px;
+}
+
+/* Título de la fecha */
+.fecha strong {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #007BFF;
+}
+
+/* Lista de partidos */
+.fecha ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Partido individual */
+.fecha li {
+  padding: 6px 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 15px;
+  color: #444;
+}
+
+/* Último elemento sin borde */
+.fecha li:last-child {
+  border-bottom: none;
+}
+
+#cuadrangulares .grupos-container {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ gap: 20px;
+}
+
+#cuadrangulares .grupo {
+  flex: 1 1 48%;
+}
+
+
+#segunda table {
+  background-color: #f5f5f5;
+  border: 2px solid #ccc;
+}
+
+h2{
+  background: #0000ff;
+  color: white;
+  width:100%;
+}
+
+#segunda h2 {
+  color: white;
+}
+
+.clasificadoMX { background-color: #2ecc71a8; }  /* verde */
+.playinMX { background-color: #f1c40fa8; }       /* amarillo */
+
+
+/*Tabla de dts*/
+.tabla-dt {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-dt th,
+.tabla-dt td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.dt-col {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dt-foto-tabla {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+}

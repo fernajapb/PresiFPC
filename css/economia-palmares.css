@@ -1,0 +1,241 @@
+
+#titulos, #titulosc, #tituloss {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1e3a8a;
+  background-color: #e0f2fe;
+  border: 2px solid #3b82f6;
+  border-radius: 12px;
+  margin: 10px 5px;
+  padding: 10px 20px;
+  width: fit-content;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+
+#titulos:hover {
+  transform: scale(1.05);
+}
+#tituloss:hover {
+  transform: scale(1.05);
+}
+#titulosc:hover {
+  transform: scale(1.05);
+}
+
+
+#palmares-colombia, 
+#palmares-internacional{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.card-palmares {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px 15px;
+  width: 170px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.card-palmares .header {
+ display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.card-palmares .posicion {
+  font-size: 14px;
+  color: #555;
+}
+
+.card-palmares .trofeos {
+  /*display: flex;*/
+  gap: 10px;
+  align-items: center;
+}
+
+.icono-trofeo {
+  width: 30px;
+  height: 40px;
+}
+
+
+/*superliga */
+#superliga{
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  margin: 30px auto;
+}
+
+#superliga h2{
+  margin-top: 0;
+  color: #1a1a1a;
+  font-size: 1.6rem;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+
+
+/*Mercado de fichajes */
+#mercadoFichajes {
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  margin: 30px auto;
+}
+
+#mercadoFichajes h3 {
+  margin-top: 0;
+  color: #1a1a1a;
+  font-size: 1.6rem;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#mercadoFichajes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#mercadoFichajes li {
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 12px 15px;
+  border-left: 5px solid #007bff;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  font-size: 15px;
+  color: #333;
+}
+
+#mercadoFichajes li:nth-child(odd) {
+  background-color: #f0f4ff;
+}
+
+#mercadoFichajes li b {
+  color: #000;
+}
+
+#mercadoFichajes li:has(.🟢) {
+  border-left-color: #28a745; /* fichaje del usuario */
+}
+
+#mercadoFichajes li:has(.🔻) {
+  border-left-color: #dc3545; /* venta del usuario */
+}
+
+#mercadoFichajes li:has(.🔁) {
+  border-left-color: #17a2b8; /* transferencia entre IA */
+}
+
+#mercadoFichajes li:has(.🔴) {
+  border-left-color: #ff8800; /* intento fallido */
+}
+.fotoJugador {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.escudos {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+
+.nota-mercado {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: linear-gradient(90deg, rgba(255,249,230,1) 0%, rgba(255,244,230,1) 100%);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-left: 4px solid #f4b400;
+  color: #333;
+  font-size: 13px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  display: inline-block;
+}
+.nota-mercado strong { margin-right: 6px; }
+
+
+
+/*Cantera*/
+#nivelCanteraTexto {
+  background-color: #1e3a8a; /* azul oscuro */
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 12px;
+  text-align: center;
+  width: fit-content;
+  margin: 10px auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  font-family: "Poppins", sans-serif;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#nivelCanteraTexto:hover {
+  transform: scale(1.05);
+  background-color: #2563eb; /* azul más vivo */
+}
+
+/*venta de camisetas*/
+#ventaCamisetasContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.tarjeta-venta {
+  background: #1e1e2f;
+  color: white;
+  border-radius: 16px;
+  padding: 20px 30px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  max-width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.tarjeta-venta:hover {
+  transform: scale(1.05);
+}
+
+.logo-equipo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin: 10px auto;
+  display: block;
+}
+
+

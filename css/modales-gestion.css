@@ -1,0 +1,385 @@
+
+/*Patrocinadores*/
+ .modal-patr { 
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+ background:rgba(0,0,0,0.6);
+display:flex;
+justify-content:center;
+align-items:center; 
+}  
+
+.modal-content-patr { 
+background:#fff;
+padding:20px;
+border-radius:12px;
+max-width:500px;
+width:90%; 
+}
+.patro-card { 
+border:1px solid #ddd;
+padding:12px;
+margin:8px 0;
+border-radius:10px;
+cursor:pointer;
+display:flex;
+align-items:center;
+gap:10px; 
+}
+  .patro-card img { 
+width:60px;
+height:40px;
+object-fit:contain; 
+}
+  .patro-card:hover {
+ background:#f5f5f5; 
+}
+
+#patrocinadorActivo {
+  margin-top: 12px;
+  max-width: 480px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.patro-card-active {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(145deg, #3b82f6, #1d4ed8); /* degradado azul */
+  border: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  padding: 14px 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  animation: patroSlideIn .22s ease-out;
+  color: #fff; /* texto blanco */
+}
+
+.patro-card-active img {
+  width: 84px;
+  height: 54px;
+  object-fit: contain;
+  background: #dbeafe; /* azul claro (tailwind blue-100) */
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.3);
+  flex: 0 0 84px;
+}
+
+.patro-nombre {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  color: #fff;
+}
+
+.patro-duracion {
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.patro-semestres-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+  font-weight: 600;
+}
+
+.patro-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+}
+
+#patrocinadorActivo.empty {
+  display: block;
+  color: #666;
+  font-size: 14px;
+  padding: 6px 8px;
+}
+
+@keyframes patroSlideIn {
+  from { transform: translateY(6px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 420px) {
+  .patro-card-active {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .patro-card-active img {
+    width: 100%;
+    height: 48px;
+    object-fit: contain;
+  }
+}
+
+/*Modal Asamblea*/
+
+.modal-asamblea {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-content-asamblea {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  width: 420px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  animation: aparecer 0.4s ease;
+}
+
+.modal-content-asamblea button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #0c5;
+  color: #fff;
+  font-weight: bold;
+}
+
+.modal-content-asamblea button#btnNo {
+  background: #c00;
+}
+
+@keyframes aparecer {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.info-liga {
+  background: linear-gradient(135deg, #0e1a3a, #142850);
+  color: #f5f5f5;
+  padding: 12px 18px;
+  border-radius: 16px;
+  margin: 10px auto;
+  width: fit-content;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.info-liga:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 14px rgba(0,0,0,0.35);
+}
+
+.info-liga p {
+  margin: 4px 0;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-liga img {
+  height: 24px;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+
+/* === Modal Director Deportivo === */
+
+.modal-director {
+  display: none; /* oculto por defecto */
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 999;
+
+  align-items: center;
+  justify-content: center;
+}
+
+/* cuando está activo */
+.modal-director.activo {
+  display: flex;
+}
+
+.modal-contenido-dir {
+  background: #ffffff;
+  width: 520px;
+  max-width: 92%;
+  max-height: 85vh;
+  padding: 18px;
+  border-radius: 12px;
+  overflow-y: auto;
+
+  /* ✨ MEJOR VISUAL */
+  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+  animation: aparecerModal 0.25s ease-out;
+}
+
+/* Animación suave */
+@keyframes aparecerModal {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cerrar-modal {
+  float: right;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+}
+
+.cerrar-modal:hover {
+  color: #000;
+}
+
+.chat-director {
+  background: #f4f6f8;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  max-height: 180px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.acciones-director {
+  margin-bottom: 10px;
+}
+
+.acciones-director button {
+  margin-right: 6px;
+  margin-bottom: 6px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #2e7d32;
+  color: #fff;
+  font-size: 13px;
+}
+
+.acciones-director button:hover {
+  background: #1b5e20;
+}
+
+/*===Estilos director mejores jugadores===*/
+
+.opcion-jugador {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 8px;
+
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.opcion-jugador:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+.opcion-jugador .fotoJugador {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #2e7d32;
+}
+
+.opcion-jugador b {
+  font-size: 14px;
+  color: #222;
+}
+
+.opcion-jugador div {
+  flex: 1;
+  font-size: 13px;
+  color: #444;
+}
+
+.opcion-jugador button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.opcion-jugador button:first-of-type {
+  background: #2e7d32;
+  color: #fff;
+}
+
+.opcion-jugador button:first-of-type:hover {
+  background: #1b5e20;
+  transform: scale(1.05);
+}
+
+.opcion-jugador button:last-of-type {
+  background: #b71c1c;
+  color: #fff;
+}
+
+.opcion-jugador button:last-of-type:hover {
+  background: #7f0000;
+  transform: scale(1.05);
+}
+
+
+/*
+.opcion-jugador {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  padding: 8px 0;
+  font-size: 13px;
+}
+
+.opcion-jugador img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 4px;
+}
+.opcion-jugador button{
+  background: green;
+ }
+
+button {
+  cursor: pointer;
+}
+*/

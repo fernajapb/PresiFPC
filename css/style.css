@@ -1,0 +1,171 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: black;
+  background-image: url('https://img.freepik.com/vector-premium/fondo-futbol-o-futbol-pelota-grande-colores-azules_444390-18092.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh; /* ocupa toda la pantalla como mínimo */
+}
+
+header {
+  display: flex;
+  text-align: center;
+  aling-items: center;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  padding: 0;
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  color: white;
+  margin-bottom: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header button{
+  display: flex;
+  background: #0f172a;
+  color: white;
+  border: none;
+  font-size: 20px;
+  margin: 4px;
+  padding: 12px 17px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.Presupuesto{
+  background-color: #0f172a;
+  font-size: 30px;
+  margin:0;
+}
+
+/* ===============================
+   MEDIA QUERIES PERSONALIZADAS
+=================================*/
+
+/* Grande (zoom, pantalla angosta) → Selects en columna */
+@media (max-width: 380px) {
+  #selectorContenedor {
+    flex-direction: column;
+    height: auto;
+  }
+  #selectorContenedor select {
+    width: 80%;
+  }
+
+  .card {
+    width: 95%;
+    padding: 12px;
+  }
+   
+}
+
+/* Predeterminado (móvil estándar) → 3 selects en fila */
+@media (min-width: 480px) and (max-width: 768px) {
+  #selectorContenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    height: 70px;
+  }
+  #selectorContenedor select {
+    width: 100%;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
+
+/* Pequeño (texto chico, más espacio en pantalla) → también 3 en fila */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #selectorContenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    height: auto;
+  }
+  #selectorContenedor select {
+    width: 100%;
+  }
+
+  .card {
+    width: 70%;
+  }
+}
+
+/* Pantallas grandes (desktop normal en adelante) */
+@media (min-width: 1025px) {
+  .card {
+    width: 400px;
+  }
+}
+
+  .text-h3{
+      color: white;
+      background: none;
+     }
+     h1{
+      color: white;
+     }
+
+
+.presupuesto-verde {
+  color: green;
+}
+.presupuesto-naranja {
+  color: orange;
+}
+.presupuesto-rojo {
+  color: red;
+}
+
+
+ /*=================================
+   Barra de navegación
+ ===================================*/
+.navbar {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-content: space-around;
+  background: #222;
+  padding: 10px;
+}
+.navbar button {
+  background: #0f172a;
+  color: white;
+  border: none;
+  font-size: 22px;
+  margin: 4px;
+  padding: 12px 17px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.navbar button:hover {
+  background: #666;
+}
+
+/*botones extras*/
+.btn_ext {
+  background-color: green;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+/* Vistas */
+.vista { display: none; }
+.vista.activa { display: block; }

@@ -1,0 +1,272 @@
+
+.button-color{
+  margin: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+
+}
+
+.button-color.activo{
+  outline: 3px solid #000;
+
+}
+
+
+/* ====== MODAL ====== */
+.modalc {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contenido-cam {
+  background: #fff;
+  width: 420px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.cerrarc {
+  float: right;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.modal-footer {
+  margin-top: 15px;
+  text-align: right;
+}
+
+/* ====== CAMISETAS ====== */
+.camiseta {
+  width: 140px;
+  height: 180px;
+  border-radius: 10px;
+  margin: 10px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid #333;
+}
+
+.camiseta.grande {
+  width: 200px;
+  height: 200px;
+}
+
+.logo {
+  width: 40px;
+  position: absolute;
+  top: 10px;
+  left: 20%;
+  transform: translateX(-50%);
+}
+
+.escudo-equipo {
+  width: 40px;
+  position: absolute;
+  top: 10px;
+  left: 78%;
+  transform: translateX(-50%);
+}
+
+/* ====== DISEÑOS ====== */
+.solido {
+  background: var(--c1);
+}
+
+.difuminado {
+  background: linear-gradient(
+    to bottom,
+    var(--c1),
+    var(--c2)
+  );
+}
+
+.rayas-verticales {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--c1),
+    var(--c1) 20px,
+    var(--c2) 20px,
+    var(--c2) 40px
+  );
+}
+
+.rayas-horizontales {
+  background: repeating-linear-gradient(
+    0deg,
+    var(--c1),
+    var(--c1) 20px,
+    var(--c2) 20px,
+    var(--c2) 40px
+  );
+}
+
+.diagonal {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--c1),
+    var(--c1) 25px,
+    var(--c2) 25px,
+    var(--c2) 50px
+  );
+}
+
+.franja-central {
+  background: linear-gradient(
+    to right,
+    var(--c1) 0%,
+    var(--c1) 35%,
+    var(--c2) 35%,
+    var(--c2) 65%,
+    var(--c1) 65%
+  );
+}
+
+.cuadros {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      var(--c1) 0px,
+      var(--c1) 30px,
+      var(--c2) 30px,
+      var(--c2) 60px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      var(--c1) 0px,
+      var(--c1) 30px,
+      var(--c2) 30px,
+      var(--c2) 60px
+    );
+}
+
+/* ===============================
+   MARCA DE CAMISETAS
+================================ */
+
+#marcaCamisetas {
+  background: #111827;
+  border-radius: 14px;
+  padding: 20px;
+  margin: 20px 0;
+  color: #e5e7eb;
+}
+
+#marcaCamisetas h2 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  border-bottom: 1px solid #374151;
+  padding-bottom: 8px;
+}
+
+/* ----- BLOQUE INFO ----- */
+
+#marcaActiva.bloque-info {
+  background: #1f2933;
+  border: 1px dashed #374151;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  color: #d1d5db;
+}
+
+/* Cuando hay marca activa */
+#marcaActiva .marca-activa {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#marcaActiva img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+/* ----- BOTONES ----- */
+
+.acciones-marca {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.acciones-marca button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.15s;
+}
+
+/* Elegir marca */
+#btnElegirMarca {
+  background: #2563eb;
+  color: white;
+}
+
+#btnElegirMarca:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* Diseñar camiseta */
+#btnDiseñarCamiseta {
+  background: #16a34a;
+  color: white;
+}
+
+#btnDiseñarCamiseta:disabled {
+  background: #374151;
+  cursor: not-allowed;
+}
+
+#btnDiseñarCamiseta:not(:disabled):hover {
+  background: #15803d;
+  transform: translateY(-1px);
+}
+
+/* ----- GRID MARCAS ----- */
+
+.grid-marcas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 14px;
+}
+
+/* ----- CARD MARCA ----- */
+
+.marca-card {
+  background: #1f2937;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.marca-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.marca-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.marca-card strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
