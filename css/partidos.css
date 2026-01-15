@@ -1,0 +1,188 @@
+/* ===============================
+   RESET BÁSICO
+================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #0b132b, #1c2541);
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 8px;
+}
+
+/* ===============================
+   CONTENEDOR PRINCIPAL
+================================ */
+.partido-container {
+  max-width: 100%;
+  margin: 0 auto;
+  background: #111827;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+}
+
+/* ===============================
+   TÍTULO
+================================ */
+.partido-container h1 {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+/* ===============================
+   SELECTS
+================================ */
+.selectores {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.selectores select {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.95rem;
+  background: #1f2937;
+  color: #fff;
+}
+
+/* ===============================
+   BOTONES
+================================ */
+.botones {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.botones button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .1s ease, opacity .1s ease;
+}
+
+.botones button:active {
+  transform: scale(0.97);
+}
+
+.btn-jugar {
+  background: #22c55e;
+  color: #052e16;
+}
+
+.btn-detener {
+  background: #ef4444;
+  color: #450a0a;
+}
+
+/* ===============================
+   MARCADOR
+================================ */
+.marcador {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #020617;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 10px;
+}
+
+.marcador span {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.marcador .separador {
+  margin: 0 14px;
+}
+
+/* ===============================
+   CRONÓMETRO
+================================ */
+.cronometro {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: #e5e7eb;
+}
+
+/* ===============================
+   INFO PARTIDO
+================================ */
+.info-partido {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  color: #c7d2fe;
+}
+
+/* ===============================
+   EVENTOS
+================================ */
+.eventos {
+  background: #020617;
+  border-radius: 12px;
+  padding: 10px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.eventos p {
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+}
+
+/* ===============================
+   DESKTOP (opcional)
+================================ */
+@media (min-width: 768px) {
+  .partido-container {
+    max-width: 600px;
+    padding: 20px;
+  }
+
+  .marcador span {
+    font-size: 2.6rem;
+  }
+}
+
+.marcador-equipos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.equipo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.escudo {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 4px;
+}
+
+#marcador {
+  font-size: 2.6rem;
+  font-weight: 800;
+}
