@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayuda – Simulador</title>
+<link rel="stylesheet" href="ayuda.css">
+ <style> 
+  * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  background: #f2f6fc;
+  color: #0f172a;
+}
+
+.header {
+  background: linear-gradient(135deg, #0a3cff, #1e90ff);
+  color: white;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 1.6rem;
+}
+
+.header p {
+  opacity: 0.9;
+  margin-top: 6px;
+}
+
+.contenedor {
+  max-width: 900px;
+  margin: auto;
+  padding: 16px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  color: #0a3cff;
+  margin-bottom: 8px;
+}
+
+.descripcion {
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  margin-top: 18px;
+  margin-bottom: 8px;
+  color: #1e40af;
+  font-size: 1rem;
+}
+
+ul {
+  padding-left: 18px;
+}
+
+li {
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+iframe {
+  width: 100%;
+  height: 420px;
+  border: none;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+.btn-volver {
+  display: block;
+  text-align: center;
+  background: #0a3cff;
+  color: white;
+  padding: 14px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.btn-volver:hover {
+  background: #1e40af;
+}
+
+details {
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: #f8fbff;
+  border: 1px solid #dbeafe;
+  padding: 10px 14px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #1e40af;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] {
+  background: #eef4ff;
+}
+
+details p {
+  margin: 8px 0;
+}
+
+.alerta {
+  background: #e0ecff;
+  border-left: 4px solid #2563eb;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+ </style>
+</head>
+<body>
+
+<header class="header">
+  <h1>Centro de Ayuda</h1>
+  <p>Guía rápida para entender el simulador</p>
+</header>
+
+<main class="contenedor">
+
+  <!-- COMO INSTALAR -->
+  <section class="card">
+    <h2>🚀 ¿Cómo instalar el simulador?</h2>
+    <p class="descripcion">
+      Sigue los pasos para instalar y ejecutar el simulador correctamente.
+    </p>
+
+    <iframe 
+      src="https://docs.google.com/document/d/13m0rQHzYEml4XQpKBbThhC7NsUFCL1mhrb5eJuPpyOM/preview"
+      loading="lazy">
+    </iframe>
+  </section>
+
+  <!-- GESTION DEL CLUB -->
+  <section class="card">
+    <h2>🏢 Gestión del Club</h2>
+    <p class="descripcion">
+      Aquí tomas las decisiones más importantes como presidente del club.
+    </p>
+
+    <h3>⚽ Elección del equipo</h3>
+    <ul>
+      <li>Elige tu equipo favorito o el que prefieras.</li>
+      <li>Se asigna automáticamente un Director Técnico.</li>
+      <li>El estadio oficial se asigna según el club.</li>
+      <li>Puedes ver tu plantilla y la de otros equipos.</li>
+    </ul>
+
+    <h3>🧠 Gestión deportiva</h3>
+    <ul>
+      <li>Hablar con el DT para cambiar el estilo de juego.</li>
+      <li>Director deportivo con recomendaciones de fichajes.</li>
+      <li>Búsqueda libre de jugadores y fichajes como presidente.</li>
+      <li>Vista de fichajes propios y de otros equipos.</li>
+      <li>Pretemporada y mejora de cantera.</li>
+    </ul>
+
+    <h3>💰 Gestión económica</h3>
+    <ul>
+      <li>Venta de camisetas.</li>
+      <li>Ingresos por sponsors y derechos de TV.</li>
+      <li>Balance económico con todos los movimientos del club.</li>
+    </ul>
+
+    <h3>📊 Información y estadísticas</h3>
+    <ul>
+      <li>Comparativa de fuerza y promedio de plantilla.</li>
+      <li>Palmarés de todos los equipos.</li>
+      <li>Noticias de fichajes importantes.</li>
+    </ul>
+
+    <h3>🔄 Decisiones institucionales</h3>
+    <ul>
+      <li>Renunciar como presidente.</li>
+      <li>Refundar o comprar la ficha de otro equipo.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+  <h2>🎮 Cómo jugar / Simulación</h2>
+  <p class="descripcion">
+    Sigue este orden para que el simulador funcione correctamente. El proceso se repite cada temporada.
+  </p>
+
+  <details open>
+    <summary>1️⃣ Simular Segunda División (Primera B)</summary>
+    <p>
+      El primer paso obligatorio es simular la <strong>Segunda División</strong>.
+    </p>
+    <ul>
+      <li>Presiona el botón <strong>Primera B</strong>.</li>
+      <li>Se mostrará un mensaje con el campeón del semestre.</li>
+      <li>Los resultados se pueden ver en la <strong>Sección B</strong>.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>2️⃣ Simular Primera División (Primera A)</summary>
+    <p>
+      Luego de simular la B, puedes simular la <strong>Primera División</strong>.
+    </p>
+    <ul>
+      <li>Presiona el botón <strong>Primera A</strong>.</li>
+      <li>Se abrirá un modal con:
+        <ul>
+          <li>Resultados fecha por fecha</li>
+          <li>Tabla parcial</li>
+          <li>Goleadores al finalizar</li>
+        </ul>
+      </li>
+      <li>Los resultados quedan guardados en la <strong>Sección A</strong>.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>3️⃣ Fase Final (Cuadrangulares)</summary>
+    <p>
+      La Primera A aún no termina hasta jugar la fase final.
+    </p>
+    <ul>
+      <li>Presiona el botón <strong>Fase Final</strong>.</li>
+      <li>Se juegan los cuadrangulares (fechas 1 a 6).</li>
+      <li>Al final se anuncia el campeón del semestre.</li>
+      <li>Los resultados se pueden ver en su sección correspondiente.</li>
+    </ul>
+    <p class="alerta">
+      ⚠️ Ahora sí queda finalizado el semestre de Primera A.
+    </p>
+  </details>
+
+  <details>
+    <summary>4️⃣ Guardar campeones (Palmarés)</summary>
+    <ul>
+      <li>Cuando haya un campeón, presiona <strong>Palmarés</strong>.</li>
+      <li>Este paso es obligatorio para guardar los títulos.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>5️⃣ Finalizar semestre</summary>
+    <p>
+      Presiona el botón <strong>Finalizar</strong>.
+    </p>
+    <ul>
+      <li>Se mostrará el mensaje: <em>Semestre finalizado</em>.</li>
+      <li>Queda habilitado el segundo semestre.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>6️⃣ Copa Colombia y evento aleatorio</summary>
+    <ul>
+      <li>Se abrirá un modal para jugar la <strong>Copa Colombia</strong>.</li>
+      <li>Juega todas sus fases hasta definir el campeón.</li>
+      <li>Presiona <strong>Palmarés</strong> para guardar el título.</li>
+      <li>Luego aparecerá un <strong>evento aleatorio</strong>:</li>
+      <ul>
+        <li>Tu decisión puede beneficiarte o perjudicarte.</li>
+      </ul>
+    </ul>
+  </details>
+
+  <details>
+    <summary>⚠️ Cartas importantes (Hinchada y eventos)</summary>
+    <p class="alerta">
+      ⚠️ Siempre que aparezca una carta debes abrirla.
+    </p>
+    <ul>
+      <li>La hinchada evalúa el rendimiento del equipo.</li>
+      <li>Un mal rendimiento puede costarte el cargo.</li>
+      <li>El simulador solo admite <strong>un mensaje activo</strong>.</li>
+      <li>Si no abres la carta, el simulador puede dar error.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>7️⃣ Segundo semestre (mismo proceso)</summary>
+    <ul>
+      <li>Simular <strong>Primera B</strong>.</li>
+      <li>Simular <strong>Primera A</strong>.</li>
+      <li>Guardar campeones en <strong>Palmarés</strong>.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>8️⃣ Cierre de temporada</summary>
+    <ul>
+      <li>Presiona <strong>Finalizar</strong>.</li>
+      <li>Recibes dinero por <strong>Derechos de TV</strong>.</li>
+      <li>Decides si pagar o no los <strong>sueldos</strong>.</li>
+    </ul>
+
+    <p>Luego se mostrarán:</p>
+    <ul>
+      <li>Ascensos, descensos y repechaje.</li>
+      <li>Copa Libertadores (octavos a final).</li>
+      <li>Presiona <strong>Palmarés internacional</strong> para guardar el título.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>9️⃣ Retiros, cantera y SuperLiga</summary>
+    <ul>
+      <li>Aparecerá una carta con:
+        <ul>
+          <li>Jugadores retirados</li>
+          <li>Canteranos ascendidos</li>
+        </ul>
+      </li>
+      <li>Presiona <strong>SuperLiga</strong>.</li>
+      <li>Guarda el título en <strong>Palmarés</strong>.</li>
+      <li>Puedes consultar las <strong>tablas anuales</strong>.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>📌 Dato extra: Fichajes</summary>
+    <ul>
+      <li>Los fichajes se realizan al finalizar cada semestre.</li>
+      <li>Puedes fichar también desde el <strong>Director Deportivo</strong>.</li>
+    </ul>
+  </details>
+
+</section>
+
+ <section class="card">
+  <h2>🎯 Objetivos y Formatos</h2>
+  <p class="descripcion">
+    Aquí defines los desafíos como presidente y el formato de competencia. 
+    Estas opciones deben usarse en momentos específicos para evitar errores.
+  </p>
+
+  <details open>
+    <summary>🎯 Objetivos del presidente</summary>
+    <p>
+      En la sección <strong>Objetivos</strong> puedes desafiarte como presidente del club.
+    </p>
+
+    <ul>
+      <li>Solo puedes seleccionar <strong>un objetivo a la vez</strong>.</li>
+      <li>Después de usar un objetivo, debes <strong>quitar la selección</strong>.</li>
+    </ul>
+
+    <h4>Objetivos disponibles</h4>
+    <ul>
+      <li><strong>Ganar la liga</strong></li>
+      <li><strong>Clasificar a cuadrangulares</strong></li>
+      <li><strong>Ganar la copa</strong></li>
+      <li><strong>Ascender</strong></li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>⏱ Cuándo usar cada objetivo</summary>
+
+    <h4>🏆 Ganar la liga</h4>
+    <ul>
+      <li>Debe seleccionarse <strong>antes de jugar la Primera División</strong>.</li>
+    </ul>
+
+    <h4>🥇 Clasificar a cuadrangulares</h4>
+    <ul>
+      <li>Debe seleccionarse <strong>antes de jugar la Primera División</strong>.</li>
+    </ul>
+
+    <h4>🏆 Ganar la copa</h4>
+    <ul>
+      <li>Debe seleccionarse <strong>después de jugar la fase final</strong>.</li>
+      <li>Se usa cuando ya terminó el <strong>primer semestre</strong>.</li>
+      <li>Debe hacerse <strong>antes de presionar Finalizar</strong>.</li>
+    </ul>
+
+    <h4>⬆️ Ascender</h4>
+    <ul>
+      <li>Debe seleccionarse <strong>solo cuando ya jugaste ambos semestres</strong>.</li>
+      <li>Se usa <strong>antes de presionar Finalizar</strong>.</li>
+    </ul>
+
+    <p class="alerta">
+      ⚠️ Usar un objetivo fuera de su momento puede generar errores o resultados incorrectos.
+    </p>
+  </details>
+
+  <details>
+    <summary>📊 Resultado de los objetivos</summary>
+    <ul>
+      <li>En la vista <strong>Objetivos</strong> podrás ver si cumpliste o no el desafío.</li>
+      <li>El resultado influye en tu evaluación como presidente.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>⚽ Formatos de competencia</summary>
+    <p>
+      Puedes modificar el formato del torneo antes de ciertas fases.
+    </p>
+
+    <h4>🔵 Playoffs</h4>
+    <ul>
+      <li>Puedes activarlo <strong>antes de jugar la Primera División</strong>.</li>
+      <li>También puedes activarlo <strong>después de jugar el TCT</strong>.</li>
+      <li>Debe hacerse <strong>antes de presionar Fase Final</strong>.</li>
+    </ul>
+
+    <h4>🟢 Formato MX</h4>
+    <ul>
+      <li>Debe seleccionarse <strong>antes de jugar la Primera División</strong>.</li>
+      <li>Permite identificar correctamente los clasificados en la tabla.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>⚠️ Reglas importantes de formatos</summary>
+    <ul>
+      <li>Después de usar un formato debes <strong>quitar la selección</strong>.</li>
+      <li>Si no hay ningún formato seleccionado, el torneo se juega con
+        <strong>cuadrangulares normales</strong>.</li>
+    </ul>
+
+    <p class="alerta">
+      ⚠️ Recuerda siempre desactivar los formatos una vez utilizados.
+    </p>
+  </details>
+
+</section>
+
+  <a href="simulador.html" class="btn-volver">⬅ Volver al simulador</a>
+
+</main>
+
+</body>
+</html>
