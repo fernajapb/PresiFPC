@@ -116,7 +116,7 @@ function mostrarModalSimulacion() {
   const modal = document.getElementById("modalSimulacion");
   const contenido = document.getElementById("modalContenido");
   const titulo = document.getElementById("modalTitulo");
-  const btnSiguiente = document.getElementById("btnSiguiente");
+  const btnSiguiente = document.getElementById("btnSiguientes");
 
   if (indiceMensaje < mensajesSimulacion.length) {
     const msg = mensajesSimulacion[indiceMensaje];
@@ -146,11 +146,11 @@ function cerrarModalSimulacion() {
   modal.style.display = "none";
   indiceMensaje = 0;
   mensajesSimulacion = [];
-  const btnSiguiente = document.getElementById("btnSiguiente");
+  const btnSiguiente = document.getElementById("btnSiguientes");
   btnSiguiente.textContent = "Siguiente";
 }
 
-document.getElementById("btnSiguiente").addEventListener("click", () => {
+document.getElementById("btnSiguientes").addEventListener("click", () => {
   indiceMensaje++;
   mostrarModalSimulacion();
 });
