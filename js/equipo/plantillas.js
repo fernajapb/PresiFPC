@@ -148,7 +148,7 @@ const plantillasJugadores = {
   { nombre: "E.Mosquera", edad: 24, media: 66, posicion: "EI", foto: "img/jugadores/E/emosquera.png"   },
   { nombre: "N.Bustos", edad: 27, media: 68, posicion: "DC" , foto: "img/jugadores/N/nbustos.png" , nacionalidad: "argentina"},
   { nombre: "L.Palacios", edad: 24, media: 65, posicion: "ED" , foto: "img/jugadores/L/luispalacios.png"  },
-  { nombre: "H.Rodallega", edad: 40, media: 72, posicion: "DC"  , foto: "img/jugadores/H/hugol.png"},
+  { nombre: "H.Rodallega", edad: 40, media: 72, posicion: "DC"  , foto: "img/jugadores/H/hugo.png"},
   { nombre: "O.Frasica", edad: 33, media: 67, posicion: "EI"  , foto: "img/jugadores/F/frasika.png"}
 ],
 
