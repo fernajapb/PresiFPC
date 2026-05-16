@@ -1,0 +1,437 @@
+
+/* Tablas de posiciones*/
+.tablas-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; 
+}
+
+.tablas-container > div {
+  width: 350px;
+}
+
+.tablas-container table {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.tablas-containerB, 
+.tablas-containerA{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .tablas-containerB,
+  .tablas-containerA{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.tablas-containerA > div {
+  width: 350px;
+}
+
+.tablas-containerA table {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.tablas-containerB > div {
+  width: 350px;
+}
+
+.tablas-containerB table {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+
+
+table {
+  width: 90%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+table th, table td {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+table th {
+  background-color: #f9fafb;
+  font-weight: bold;
+}
+
+/* Historial */
+#historial {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+#listaHistorial {
+  list-style: none;
+  padding-left: 0;
+}
+
+#listaHistorial li {
+  padding: 5px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+#listaHistorialcopa{
+  list-style: none;
+  padding-left: 0;
+}
+
+#listaHistorialcopa li {
+  padding: 5px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+#listaHistorialsuper {
+  list-style: none;
+  padding-left: 0;
+}
+
+#listaHistorialsuper li {
+  padding: 5px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+
+#listaHistorialB {
+  list-style: none;
+  padding-left: 0;
+  
+}
+
+#listaHistorialB li {
+  padding: 5px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+
+/*Detalles Tablas*/
+.mi-equipo {
+  background-color: #d0e4ff !important;
+  font-weight: bold;
+}
+
+.mi-equipo td:nth-child(2)::before {
+  content: "*";
+  color: black;
+}
+.escudo {
+  width: 30px;
+  height: 30px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+tr.clasificado {
+  background-color: #d1fae5;
+  font-weight: bold;
+}
+
+tr.lider-grupo {
+  background-color: #fde68a;
+  font-weight: bold;
+}
+
+.descenso {
+  background-color: #ffe5e5;
+  color: #b30000;
+  font-weight: bold;
+  }
+
+
+/*Secciones y partidos*/
+#final {
+  background: #f8f9fa;
+  border: 2px solid #dee2e6;
+  border-radius: 20px;
+  padding: 20px 30px;
+  margin-top: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#finalB {
+  background: #f8f9fa;
+  border: 2px solid #dee2e6;
+  border-radius: 20px;
+  padding: 20px 30px;
+  margin-top: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Contenedor general */
+#resultados {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+#resultados{
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: white;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+h4{
+color: red;
+}
+
+/* Cada bloque de fecha */
+.fecha {
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background-color: #f7f9fc;
+  border-left: 4px solid #007BFF;
+  border-radius: 6px;
+}
+
+/* Título de la fecha */
+.fecha strong {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #007BFF;
+}
+
+/* Lista de partidos */
+.fecha ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Partido individual */
+.fecha li {
+  padding: 6px 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 15px;
+  color: #444;
+}
+
+/* Último elemento sin borde */
+.fecha li:last-child {
+  border-bottom: none;
+}
+
+#cuadrangulares .grupos-container {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ gap: 20px;
+}
+
+#cuadrangulares .grupo {
+  flex: 1 1 48%;
+}
+
+
+#segunda table {
+  background-color: #f5f5f5;
+  border: 2px solid #ccc;
+}
+
+h2{
+  background: #0000ff;
+  color: white;
+  width:100%;
+}
+
+#segunda h2 {
+  color: white;
+}
+
+
+/*TABLAS TORNEOS*/
+.tabla-resultado{
+  display:flex;
+  gap:20px;
+}
+
+.label-cgc{
+  color: #0000ff;
+}
+
+.topBar{
+  display:flex;
+  gap:10px;
+  margin-bottom:15px;
+}
+
+.btnPrincipal,
+.btnSimular,
+.btnCrear{
+  background:#1f8ef1;
+  border:none;
+  color:white;
+  padding:12px 18px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:bold;
+  transition:0.2s;
+}
+
+.btnPrincipal:hover,
+.btnSimular:hover,
+.btnCrear:hover{
+  transform:scale(1.05);
+}
+
+.btnSimular{
+  background:#27ae60;
+}
+
+.btnBorrar{
+  background:#c0392b;
+  border:none;
+  color:white;
+  padding:12px 18px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:bold;
+  transition:0.2s;
+}
+
+.btnBorrar:hover{
+  transform:scale(1.05);
+}
+
+.panelTorneo{
+  width:420px;
+  background:#121212;
+  padding:20px;
+  margin: 0 auto;
+  border-radius:16px;
+  border:2px solid #333;
+  box-shadow:0 0 15px rgba(0,0,0,0.4);
+
+}
+
+.panelTorneo h1{
+  margin-top:0;
+  text-align:center;
+}
+
+.campos{
+  margin-bottom:18px;
+}
+
+.campos label{
+  display:block;
+  margin-bottom:8px;
+  font-weight:bold;
+}
+
+.campos select{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:none;
+  font-size:15px;
+}
+
+.listaEquipos{
+  display: flex;
+  gap: 6px;
+  max-height:250px;
+  overflow-y:auto;
+  background:#1d1d1d;
+  color: #fff;
+  border-radius:10px;
+  padding:10px;
+}
+
+.itemEquipo{
+  display:flex;
+  align-items:center;
+  width: 1000px;
+  gap:10px;
+  padding:8px;
+  margin-bottom:6px;
+  background:#2a2a2a;
+  border-radius:8px;
+}
+
+.itemEquipo:hover{
+  background:#333;
+}
+
+.tablaTorneo{
+  margin-top:20px;
+  background:#121212;
+  max-width: 300px;
+  padding:15px;
+  border-radius:15px;
+}
+
+.tablaTorneo table{
+  width:30%;
+  border-collapse:collapse;
+}
+
+.tablaTorneo th{
+  background:#1f8ef1;
+}
+
+.tablaTorneo th,
+.tablaTorneo td{
+  padding:10px;
+  text-align:center;
+  border:1px solid #333;
+}
+
+.clasificado{
+  background:#145a14;
+}
+
+.eliminado{
+  background:#5a1414;
+}
+
+.resultado-partido{
+  background:#ffffff;
+  margin:8px 0;
+  width: 89%;
+  padding:12px; 
+  border-radius:10px;
+  font-size:18px;
+  text-align:center;
+}
+
+
+.resultado-partido p{
+  display: flex;
+}

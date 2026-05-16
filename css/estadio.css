@@ -1,0 +1,136 @@
+/* ===== 🎮 ESTADIO UI ===== */
+
+/*
+#estadioContainer {
+  background: linear-gradient(145deg, #1c1f26, #2a2e39);
+  border: 1px solid #3b4252;
+  border-radius: 18px;
+  padding: 20px;
+  max-width: 380px;
+  color: #f5f6fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+  margin-top: 20px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#estadioContainer:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+#estadioContainer h3 {
+  font-size: 1.4rem;
+  color: #00ffc3;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 4px #00ffc3;
+}
+
+#fotoEstadio {
+  width: 50%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+#fotoEstadio:hover {
+  transform: scale(1.03);
+}
+
+#estadioContainer p {
+  font-size: 0.95rem;
+  margin: 6px 0;
+  color: #d8dee9;
+}
+*/
+
+/* ===== ESTADIO DASHBOARD FIXED ===== */
+
+#estadioContainer.dashboards {
+  display: flex;
+  align-items: stretch;
+  background: linear-gradient(145deg, #1c1f26, #2a2e39);
+  color: white;
+  border: 1px solid #3b4252;
+  border-radius: 18px;
+  overflow: hidden;
+  max-width: 520px;
+  height: 240px; /* 🔥 altura fija elegante */
+  margin: 20px auto;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+}
+
+/* Imagen SIEMPRE controlada */
+#fotoEstadio {
+  width: 48%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Info derecha */
+.estadio-info {
+  width: 52%;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+#estadioContainer.dashboards:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.7);
+}
+
+
+#fotoEstadio:hover {
+  transform: scale(1.05);
+}
+
+#nombreEstadio {
+  font-size: 1.4rem;
+  margin-bottom: 14px;
+  color: #00ffc3;
+  text-shadow: 0 0 6px #00ffc3;
+}
+
+/* Datos */
+.dato {
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+.label {
+  font-weight: bold;
+  color: #8fbcbb;
+}
+
+/* Resultado dinámico */
+#resultadoTaquilla {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #00d084;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+
+  #estadioContainer.dashboard {
+    flex-direction: column;
+    height: auto; /* importante */
+  }
+
+  #fotoEstadio {
+    width: 100%;
+    height: 180px; /* 🔥 altura limpia */
+  }
+
+  .estadio-info {
+    width: 100%;
+  }
+}
