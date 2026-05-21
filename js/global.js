@@ -50,7 +50,7 @@ if (encabezado) {
 //EQUIPOS DE PRIMERA 
 let equiposPrimera = [
   { nombre: "Nacional", fuerza: 72 },
-  { nombre: "Junior", fuerza: 71 },
+  { nombre: "Junior", fuerza: 72 },
   { nombre: "América", fuerza: 70 },
   { nombre: "Tolima", fuerza: 70 },
   { nombre: "Santa Fe", fuerza: 70 },
@@ -60,9 +60,9 @@ let equiposPrimera = [
   { nombre: "Bucaramanga", fuerza: 68 },
   { nombre: "Once Caldas", fuerza: 67 },
   { nombre: "Inter Bogotá", fuerza: 66 },
-  { nombre: "Pasto", fuerza: 65 },
-  { nombre: "Águilas", fuerza: 64 },
-  { nombre: "Fortaleza", fuerza: 64 },
+  { nombre: "Pasto", fuerza: 66 },
+  { nombre: "Águilas", fuerza: 645},
+  { nombre: "Fortaleza", fuerza: 65 },
   { nombre: "Cucuta", fuerza: 63 },
   { nombre: "Llaneros", fuerza: 63 },
   { nombre: "Alianza", fuerza: 63 },
@@ -74,22 +74,22 @@ let equiposPrimera = [
 
 //EQUIPOS DE SEGUNDA
 let equiposSegunda = [
-  { nombre: "Envigado", fuerza: 60 },
-  { nombre: "Real Cartagena", fuerza: 60 },
-  { nombre: "U.Magdalena", fuerza: 60 },
-  { nombre: "Inter Palmira", fuerza: 60 },
-  { nombre: "Quindio", fuerza: 60 },
+  { nombre: "Envigado", fuerza: 62 },
+  { nombre: "Real Cartagena", fuerza: 62 },
+  { nombre: "U.Magdalena", fuerza: 62 },
+  { nombre: "Inter Palmira", fuerza: 61 },
+  { nombre: "Quindio", fuerza: 61 },
   { nombre: "Ind.Yumbo", fuerza: 58 },
   { nombre: "Patriotas", fuerza: 58 },
-  { nombre: "Bogotá", fuerza: 58 },
-  { nombre: "Leones", fuerza: 56 },
-  { nombre: "Atlético FC", fuerza: 56 },
+  { nombre: "Bogotá", fuerza: 55 },
   { nombre: "Orsomarso", fuerza: 55 },
   { nombre: "Barranquilla", fuerza: 55 },
-  { nombre: "R.Cundinamarca", fuerza: 56}, 
-  { nombre: "Tigres", fuerza: 57},
-  { nombre: "Boca Jrs. Cali", fuerza: 53 },
-  { nombre: "R.Santander", fuerza: 52 }
+  { nombre: "R.Cundinamarca", fuerza: 55}, 
+  { nombre: "Tigres", fuerza: 55},
+  { nombre: "Leones", fuerza: 52 },
+  { nombre: "Atlético FC", fuerza: 52 },
+  { nombre: "Boca Jrs. Cali", fuerza: 52},
+  { nombre: "R.Santander", fuerza: 50 }
   
 ];
 
@@ -196,19 +196,22 @@ function calcularSueldoPorFuerza(fuerza) {
   return Math.round(presupuesto * (0.30 + fuerza / 200));
 }
 
-function formatearPrecio(valor) {
-  if (valor >= 1_000_000) {
-    let millones = (valor / 1_000_000).toFixed(1);
 
-    // Quitar ".0"
+function formatearPrecio(valor) {
+  const absValor = Math.abs(valor);
+
+  if (absValor >= 1_000_000) {
+    let millones = (absValor / 1_000_000).toFixed(1);
+
+    // quitar .0
     if (millones.endsWith(".0")) {
       millones = millones.slice(0, -2);
     }
 
-    return `$${millones}M`;
+    return `${valor < 0 ? "-$" : "$"}${millones}M`;
   } else {
-    let miles = Math.round(valor / 1_000);
-    return `$${miles}K`;
+    let miles = Math.round(absValor / 1000);
+    return `${valor < 0 ? "-$" : "$"}${miles}K`;
   }
 }
 
