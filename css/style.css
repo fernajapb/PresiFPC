@@ -24,9 +24,6 @@ header {
   background: linear-gradient(145deg, #1e293b, #0f172a);
   color: white;
   margin-bottom: 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
 header button{
