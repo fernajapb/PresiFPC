@@ -358,7 +358,8 @@ object-fit:contain;
 /*===Estilos director mejores jugadores===*/
 
 .opcion-jugador {
-  display: flex;
+  display:inline-block;
+  width:calc(50% - 25px);
   align-items: center;
   gap: 10px;
 
