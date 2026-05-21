@@ -50,7 +50,7 @@ document.getElementById("btnReclamarTV").addEventListener("click", function () {
 //Pagar 
 document.getElementById("btnPagarSueldos").addEventListener("click", function () {
 
-  if (!derechosReclamados) {
+   if (!derechosReclamados) {
     alert("Primero debes reclamar los Derechos de TV.");
     return;
   }
@@ -61,36 +61,16 @@ document.getElementById("btnPagarSueldos").addEventListener("click", function ()
     obtenerFuerzaTotal(equipoUsuario)
   );
 
-  if (presupuestoVisible >= sueldoAnual) {
+  restarPresupuesto(sueldoAnual);
 
-    restarPresupuesto(sueldoAnual);
+  balanceEconomico.sueldos -= sueldoAnual;
+  actualizarBalanceUI();
 
-    balanceEconomico.sueldos -= sueldoAnual;
-    actualizarBalanceUI();
-
-    alert(` Sueldos pagados: $${sueldoAnual.toLocaleString()}`);
-
-  } 
-  
-  if (presupuestoVisible < sueldoAnual) {
-
-    restarPresupuesto(sueldoAnual);
-
-    balanceEconomico.sueldos -= sueldoAnual;
-    actualizarBalanceUI();
-
-    alert(` Sueldos pagados: $${sueldoAnual.toLocaleString()}`);
-
-  } 
-  /*
-  else {
-    alert("No tienes suficiente presupuesto. Se aplicará penalización.");
-    penalizarPorNoPagarSueldos();
-  }
-    */
+  alert(`Sueldos pagados: $${sueldoAnual.toLocaleString()}`);
 
   decisionSueldosTomada = true;
   verificarCerrarModal();
+  
 });
 
 //No Pagar
