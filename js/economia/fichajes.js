@@ -192,15 +192,15 @@ function directorMejoresJugadores() {
   // 🔀 Aleatoriedad leve (no siempre los mismos)
   candidatos.sort(() => Math.random() - 0.5);
 
-  const seleccion = candidatos.slice(0, 5);
+  const seleccion = candidatos.slice(0, 6);
 
   seleccion.forEach(({ jugador, equipo }) => {
     const precio = calcularPrecioJugador(jugador);
-    const foto = jugador.foto || "img/jugadores/default.png";
+    //const foto = jugador.foto || "img/jugadores/default.png";
      //<img src="${foto}" class="fotoJugador"></img>
     opcionesDiv.innerHTML += `
       <div class="opcion-jugador">
-        <img src="${getFotoJugador(foto)}"
+        <img src="${getFotoJugador(jugador)}"
         onerror="this.src='img/jugadores/default.png'"
         class="fotoJugador">
         <br>
@@ -365,7 +365,7 @@ function directorBuscarPorNombre() {
 
   const { jugador, equipo } = encontrado;
   const precio = calcularPrecioJugador(jugador);
-  const foto = jugador.foto || "img/jugadores/default.png";
+  //const foto = jugador.foto || "img/jugadores/default.png";
 
   chat.innerHTML += `
     <p><b>Director:</b> He encontrado al jugador solicitado.</p>
@@ -373,7 +373,7 @@ function directorBuscarPorNombre() {
   //<img src="${foto}" class="fotoJugador"></img>
   opcionesDiv.innerHTML = `
     <div class="opcion-jugador">
-      <img src="${getFotoJugador(foto)}"
+      <img src="${getFotoJugador(jugador)}"
       onerror="this.src='img/jugadores/default.png'"
       class="fotoJugador"><br>
       <b>${jugador.nombre}</b> (${jugador.media})<br>
