@@ -1,0 +1,361 @@
+
+
+//PALMARES
+let palmaresEquipos = {
+  "Nacional": { ligas: 18, copas: 8, superligas:4, libertadores:2 },
+  "Millonarios": { ligas: 16, copas: 3, superligas:2},
+  "América": { ligas: 15, B:1},
+  "Cali": { ligas: 10, copas: 1, superligas:1},
+  "Junior": { ligas: 11, copas: 2, superligas:2},
+  "Santa Fe": { ligas: 10, copas: 2, superligas:5},
+  "Tolima": { ligas: 3, copas: 1, superligas:1, B:1},
+  "Medellín": { ligas: 6, copas: 3},
+  "Once Caldas": { ligas: 4, copas: 1 , libertadores:1},
+
+  "Pereira": { ligas: 1, B:2},
+  "Bucaramanga": { ligas: 1, B:2},
+  "Inter Bogotá": { copas: 1},
+  "Pasto": { ligas: 1, B:2},
+  "B.Chico": { ligas: 1, B:3},
+  "U.Magdalena": { ligas: 1, B:2},
+  "Cucuta": { ligas: 1, B:4},
+  "Quindio": { ligas: 1, B:1},
+  "Real Cartagena": { B:3},
+  "Envigado": { B:3},
+  "Jaguares": { B:2},
+  "Patriotas": { B:1},
+  "Águilas": { B:1},
+  "Huila": { B:3},
+  "Cortuluá": { B:1},
+  "Unicosta": { B:1},
+  "Centauros V.": { B:1},
+  "Uniautonoma": { B:1},
+  "CA Boca Jrs": { copas: 1},
+
+  "Independiente": { libertadores:7},
+  "Boca": { libertadores:6},
+  "Penarol": { libertadores:5},
+  "Flamengo": { libertadores:4},
+  "River": { libertadores:4},
+  "Estudiantes": {libertadores:4},
+  "Olimpia": { libertadores:3},
+  "Nacional UY": {libertadores:3},
+  "Sao Paulo": { libertadores:3},
+  "Palmeiras": {  libertadores:3},
+  "Gremio": { libertadores:3},
+  "Cruzeiro": { libertadores:2},
+  "Colo Colo": { libertadores:1},
+  "Racing": { libertadores:1},
+  "Mineiro": { libertadores:1},
+  "LDU": { libertadores:1},
+  "San Lorenzo": { libertadores:1},
+};
+
+//ACTUALIZAR PALMARES 
+function agregarTitulo(equipo, tipo) {
+  if (!palmaresEquipos[equipo]) {
+    palmaresEquipos[equipo] = {};
+  }
+
+  if (palmaresEquipos[equipo][tipo] == null) {
+    palmaresEquipos[equipo][tipo] = 0;
+  }
+
+  palmaresEquipos[equipo][tipo]++;
+}
+
+
+/*
+function agregarTituloLiga(equipo) {
+  if (!palmaresEquipos[equipo]) {
+    palmaresEquipos[equipo] = { ligas: 0, copas: 0 , superligas: 0 };
+  }
+  palmaresEquipos[equipo].ligas++;
+}
+
+function agregarTituloCopa(equipo) {
+  if (!palmaresEquipos[equipo]) {
+    palmaresEquipos[equipo] = { ligas: 0, copas: 0 , superligas: 0 };
+  }
+  palmaresEquipos[equipo].copas++;
+}
+
+function agregarTituloSuperliga(equipo) {
+  if (!palmaresEquipos[equipo]) {
+    palmaresEquipos[equipo] = { ligas: 0, copas: 0, superligas: 0 };
+  }
+  if (palmaresEquipos[equipo].superligas == null) palmaresEquipos[equipo].superligas = 0;
+  palmaresEquipos[equipo].superligas++;
+}
+
+// Asegurar compatibilidad hacia atrás en todo el palmarés
+Object.keys(palmaresEquipos).forEach(k => {
+  if (palmaresEquipos[k].superligas == null) palmaresEquipos[k].superligas = 0;
+});
+*/
+
+/*
+function agregarTituloLibertadores(equipo) {
+  if (!palmaresEquipos[equipo]) {
+    palmaresEquipos[equipo] = {
+      libertadores: 0
+    };
+  }
+
+  if (palmaresEquipos[equipo].libertadores == null) {
+    palmaresEquipos[equipo].libertadores = 0;
+  }
+
+  palmaresEquipos[equipo].libertadores++;
+}
+*/
+/*
+function agregarTituloLibertadores(equipo) {
+  if (!palmaresEquipos[equipo]) {
+    palmaresEquipos[equipo] = {
+      ligas: 0,
+      copas: 0,
+      superligas: 0,
+      libertadores: 0
+    };
+  }
+
+  if (palmaresEquipos[equipo].libertadores == null) {
+    palmaresEquipos[equipo].libertadores = 0;
+  }
+
+  palmaresEquipos[equipo].libertadores++;
+}
+*/
+
+function EscudoPalmares(nombre) {
+  return getEscudoEquipo(nombre);
+}
+
+function mostrarPalmaresColombia() {
+  const contenedor = document.getElementById("palmares-colombia");
+  if (!contenedor) return;
+
+  let equipos = Object.entries(palmaresEquipos)
+    .filter(([nombre]) =>
+      equiposPrimera.some(e => e.nombre === nombre) ||
+      equiposSegunda.some(e => e.nombre === nombre)
+    )
+    .map(([nombre, d]) => ({
+      nombre,
+      ligas: d.ligas || 0,
+      copas: d.copas || 0,
+      superligas: d.superligas || 0,
+      B: d.B || 0,
+      total: (d.ligas || 0) + (d.copas || 0) + (d.superligas || 0)
+    }))
+    .sort((a, b) => b.total - a.total || b.ligas - a.ligas);
+
+  let html = `<h2>🏆 Palmarés Colombia</h2>`;
+
+  equipos.forEach((e, i) => {
+    html += `
+      <div class="card-palmares">
+        <div class="header">
+          <span class="posicion">#${i + 1}</span>
+          <img src="${EscudoPalmares(e.nombre)}" class="escudo" width="40">
+          <span class="nombre">${e.nombre}</span>
+        </div>
+
+        <div class="trofeos">
+          <img src="recursos/trofeos/liga.png"  class="icono-trofeo">
+          <span>${e.ligas}</span>
+
+          <img src="recursos/trofeos/copa.png"  class="icono-trofeo">
+          <span>${e.copas}</span>
+
+          <img src="recursos/trofeos/super.png" class="icono-trofeo">
+          <span>${e.superligas}</span>
+
+          <img src="recursos/trofeos/torneo.png" class="icono-trofeo">
+          <span>${e.B}</span>
+        </div>
+      </div>
+    `;
+  });
+
+  contenedor.innerHTML = html;
+}
+
+
+function mostrarPalmaresInternacional() {
+  const contenedor = document.getElementById("palmares-internacional");
+  if (!contenedor) return;
+
+  let equipos = Object.entries(palmaresEquipos)
+    .filter(([_, d]) => (d.libertadores || 0) > 0)
+    .map(([nombre, d]) => ({
+      nombre,
+      libertadores: d.libertadores || 0
+    }))
+    .sort((a, b) => b.libertadores - a.libertadores);
+
+  let html = `<h2>🌎 Palmarés Internacional</h2>`;
+
+  equipos.forEach((e, i) => {
+    html += `
+      <div class="card-palmares">
+        <div class="header">
+          <span class="posicion">#${i + 1}</span>
+          <img src="${EscudoPalmares(e.nombre)}" class="escudo" width="40">
+          <span class="nombre">${e.nombre}</span>
+        </div>
+
+        <div class="trofeos">
+          <img src="recursos/trofeos/lib.png" class="icono-trofeo">
+          <span>: ${e.libertadores}</span>
+        </div>
+      </div>
+    `;
+  });
+
+  contenedor.innerHTML = html;
+}
+
+
+//PRESUPUESTO
+let presupuestosEquipos = {};
+
+let presupuestoVisible = 0;
+
+function sumarPresupuesto(monto) {
+  presupuestoVisible += monto;
+  document.getElementById("Presupuesto").textContent = `Presupuesto: $${presupuestoVisible.toLocaleString()}`;
+actualizarPresupuestoHTML() ;
+}
+
+function restarPresupuesto(monto) {
+  presupuestoVisible -= monto; // ✅ Puede quedar en negativo
+  document.getElementById("Presupuesto").textContent = `Presupuesto: $${presupuestoVisible.toLocaleString()}`;
+
+  verificarPresupuestoNegativo(); // ✅ Llamada automática
+  actualizarPresupuestoHTML() 
+}
+
+
+let presupuestoNegativoDetectado = false;
+let alertaPresupuestoSinResolver = false;
+
+function verificarPresupuestoNegativo() {
+  if (presupuestoVisible < 0 && !presupuestoNegativoDetectado && !palancaUsadaEstaCrisis) {
+    presupuestoNegativoDetectado = true;
+
+    const botonPalanca = document.getElementById("botonPalanca");
+    if (botonPalanca) {
+      botonPalanca.disabled = false;
+      botonPalanca.classList.add("activo");
+    }
+  }
+}
+
+let palancaUsadaEstaCrisis = false;
+
+function desactivarPalanca() {
+  const boton = document.getElementById("botonPalanca");
+  if (boton) {
+    boton.disabled = true;
+    boton.classList.remove("activo");
+  }
+
+  palancaUsadaEstaCrisis = true; // ⛔ evita que se active otra vez en la misma crisis
+}
+
+
+
+function actualizarPresupuestoHTML() {
+  const elemento = document.getElementById("Presupuesto");
+
+  if (elemento) {
+    const valor = formatearPrecio(presupuestoVisible);
+    elemento.textContent = `Presupuesto: ${valor}`;
+
+    // 🧼 Primero eliminamos todas las clases posibles
+    elemento.classList.remove("presupuesto-rojo", "presupuesto-naranja", "presupuesto-verde");
+
+    // 🎨 Luego agregamos solo la clase que corresponde
+    if (presupuestoVisible < 0) {
+      elemento.classList.add("presupuesto-rojo");
+    } else if (presupuestoVisible === 0) {
+      elemento.classList.add("presupuesto-naranja");
+    } else {
+      elemento.classList.add("presupuesto-verde");
+
+      // 🔁 Resetear flags si saliste de la crisis
+      desactivarPalanca();
+      presupuestoNegativoDetectado = false;
+      palancaUsadaEstaCrisis = false;
+    }
+  }
+}
+
+
+
+function activarPalanca() {
+  if (presupuestoVisible >= 0) {
+    alert("✅ No estás en crisis. La palanca solo se activa con presupuesto negativo.");
+    return;
+  }
+
+  const preguntasCrisis = [
+    
+    {
+      texto: "👕 ¿Subastar camisetas históricas por $4M?",
+      si: () => {
+        sumarPresupuesto(4000000);
+        alert("🧤 Vendiste reliquias. Doloroso pero útil. Sumas $4M.");
+        desactivarPalanca() ;
+        document.getElementById("botonPalanca").disabled = true;
+      },
+      no: () => {
+        alert("😭 Decidiste conservar la historia. Aún sin fondos.");
+      }
+    },
+    {
+      texto: "🏫 ¿Alquilar parte del club para eventos y oficinas externas por $6M?",
+      si: () => {
+        sumarPresupuesto(6000000);
+        alert("💼 Alquilaste espacio del club. Ganas $6M y calmas la crisis.");
+        desactivarPalanca() ;
+        document.getElementById("botonPalanca").disabled = true;
+      },
+      no: () => {
+        alert("🤷‍♂️ Rechazaste la oferta. El déficit continúa.");
+      }
+    },
+    {
+      texto: "🐷 ¿Vender el bus oficial del plantel y usar uno alquilado por ahora? Ganas $3M.",
+      si: () => {
+        sumarPresupuesto(3000000);
+        alert("🚐 Vendiste el bus oficial. Sumas $3M pero el club quedó sin vehículo propio.");
+        desactivarPalanca() ;
+        document.getElementById("botonPalanca").disabled = true;
+      },
+      no: () => {
+        alert("🚫 Rechazaste la venta. El bus se mantiene, pero no hay ingreso.");
+      }
+    },
+   {
+  texto: "👔 Estás en números rojos. Una opción rápida es despedir personal de la junta directiva para ahorrar costos. ¿Recortar sueldos?",
+  si: () => {
+    presupuestoVisible += 8000000;
+    actualizarPresupuestoHTML();
+    alert("📉 Recortaste personal y recuperaste $8 millones. El club sigue, aunque con menos apoyo administrativo.");
+  },
+  no: () => {
+    alertaPresupuestoSinResolver = true;
+    alert("⚠️ No resolviste el déficit. Esto puede traer problemas al club en el futuro...");
+  }
+}
+  ];
+
+  // Elegir una aleatoria
+  const pregunta = preguntasCrisis[Math.floor(Math.random() * preguntasCrisis.length)];
+  const confirmar = confirm(pregunta.texto);
+  if (confirmar) pregunta.si();
+  else pregunta.no();
+}
