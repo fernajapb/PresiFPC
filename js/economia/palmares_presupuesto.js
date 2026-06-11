@@ -6,7 +6,7 @@ let palmaresEquipos = {
   "Millonarios": { ligas: 16, copas: 3, superligas:2},
   "América": { ligas: 15, B:1},
   "Cali": { ligas: 10, copas: 1, superligas:1},
-  "Junior": { ligas: 11, copas: 2, superligas:2},
+  "Junior": { ligas: 12, copas: 2, superligas:2},
   "Santa Fe": { ligas: 10, copas: 2, superligas:5},
   "Tolima": { ligas: 3, copas: 1, superligas:1, B:1},
   "Medellín": { ligas: 6, copas: 3},
