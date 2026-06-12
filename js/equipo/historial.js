@@ -139,6 +139,8 @@ function descargarTodo() {
 LIGA: ${ligasGanadasPorUsuario}
 COPA: ${copasGanadasPorUsuario}
 SUPERLIGA: ${superligasGanadasPorUsuario}
+LIBERTADORES: ${libertadoresGanadasPorUsuario}
+PRIMERA B: ${primerabGanadasPorUsuario}
 ==============================
 
 `;
