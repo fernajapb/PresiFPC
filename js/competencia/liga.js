@@ -86,36 +86,46 @@ const probabilidadGolPorPosicion = {
 };
 
 
+
 function elegirGoleadorPorPeso(plantilla) {
-  if (!plantilla || plantilla.length === 0) return "Jugador anonimo";
+
+  if (!plantilla || plantilla.length === 0) {
+    return "Jugador anónimo";
+  }
 
   const pool = [];
 
-  for (let jugador of plantilla) {
+  for (const jugador of plantilla) {
+
     const posicion = jugador.posicion?.toUpperCase() || "MCO";
     const pesoBase = probabilidadGolPorPosicion[posicion] ?? 0;
 
-    // 🔥 Forma del jugador
     const forma = Number(jugador.forma) || 0;
+    const media = Number(jugador.media) || 70;
 
-    // 🎯 Ajuste de peso por forma
-    let pesoFinal = pesoBase + forma;
+    // Bonus por calidad
+    const bonusMedia = Math.floor((media - 70) / 5);
 
-    // 🚫 Evitar negativos o cosas raras
+    let pesoFinal = pesoBase + forma + bonusMedia;
+
+    // Evitar negativos
     if (pesoFinal < 0) pesoFinal = 0;
 
-    // 🚫 Limitar impacto de la forma (muy importante)
-    if (pesoFinal > pesoBase + 3) pesoFinal = pesoBase + 3;
+    // Limitar la influencia de la forma
+    if (pesoFinal > pesoBase + bonusMedia + 3) {
+      pesoFinal = pesoBase + bonusMedia + 3;
+    }
 
-    // 🧩 Construir pool
     for (let i = 0; i < pesoFinal; i++) {
       pool.push(jugador.nombre);
     }
   }
 
-  if (pool.length === 0) return "Jugador anonimo";
-  const idx = Math.floor(Math.random() * pool.length);
-  return pool[idx];
+  if (pool.length === 0) {
+    return "Jugador anónimo";
+  }
+
+  return pool[Math.floor(Math.random() * pool.length)];
 }
 
 
